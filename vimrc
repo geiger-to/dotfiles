@@ -90,6 +90,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'scrooloose/syntastic'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-scripts/EasyGrep'
+Bundle 'ciaranm/detectindent'
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
