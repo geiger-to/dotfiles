@@ -81,8 +81,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'tpope/vim-markdown'
-Bundle 'vim-scripts/Jinja'
-Bundle 'ocim/htmljinja.vim'
+Bundle 'lepture/vim-jinja'
 Bundle 'jonathangeiger/Vim-PHP-Doc'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
@@ -99,7 +98,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.json set ft=javascript
 
 " Map .twig files as jinja templates
-au BufRead,BufNewFile *.{twig} set ft=htmljinja
+au BufRead,BufNewFile *.{twig} set ft=jinja
 
 " Add .less highlighting
 au BufRead,BufNewFile *.{less} set ft=less
@@ -111,13 +110,13 @@ filetype plugin indent on
 au FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
 " PHP and more
-au FileType php,css,html,htmljinja,javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
+au FileType php,css,html,jinja,javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
-" Yaml files in symfony use four spaces
-au FileType yaml setlocal expandtab shiftwidth=4 softtabstop=4
+" Yaml files typically use four spaces
+au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Don't wrap HTML
-au FileType html,htmljinja setlocal textwidth=0
+au FileType html,jinja setlocal textwidth=0
 
 " Ruby
 au FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
