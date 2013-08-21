@@ -91,12 +91,16 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'vim-scripts/EasyGrep'
 Bundle 'ciaranm/detectindent'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-haml'
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
-" add coffeescript support
+" Add coffeescript support
 au BufRead,BufNewFile *.coffee set ft=coffee
+
+" Add haml-coffee support
+au BufRead,BufNewFile *.hamlc set ft=haml
 
 " add json syntax highlighting
 au BufRead,BufNewFile *.json set ft=javascript
@@ -116,14 +120,11 @@ au FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 " PHP and more
 au FileType php,css,html,jinja,javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
 
-" Yaml files typically use four spaces
-au FileType yaml setlocal expandtab shiftwidth=2 softtabstop=2
-
 " Don't wrap HTML
 au FileType html,jinja setlocal textwidth=0
 
 " Ruby
-au FileType ruby setlocal expandtab shiftwidth=2 softtabstop=2
+au FileType ruby,coffee,haml,yaml setlocal expandtab shiftwidth=2 softtabstop=2
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
