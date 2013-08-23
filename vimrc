@@ -141,6 +141,10 @@ set showcmd
 " Disable ctrlp's working path detection
 let g:ctrlp_working_path_mode = ''
 
+" Airline configuration
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
 " Use git-grep for grepping
 set grepprg=git\ grep\ -n\ $*
 
