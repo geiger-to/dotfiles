@@ -47,9 +47,6 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <silent> <esc> :set hlsearch!<CR><esc>
-nnoremap / /\v
-vnoremap / /\v
 
 " Tab completion
 set wildmode=list:longest,list:full
@@ -154,6 +151,16 @@ autocmd CursorHold,CursorHoldI * silent! wa
 " Balance window sizes automatically
 autocmd VimResized,BufNew * wincmd =
 
+" Fast writes
+map <Leader>w :w!<CR>
+map <Leader>wq :wq!<CR>
+
+" Search improvements
+map <Space> /
+
+" Toggle search highlighting
+map <Leader><Space> :set hlsearch!<CR><esc>
+
 " Fast resizing of splits
 map <C-=> <C-w>=
 
@@ -172,8 +179,8 @@ map <Leader>t :tabnew<CR>
 
 " Bindings
 map  <Leader>/ <plug>NERDCommenterToggle
-nmap <Leader>f :copen\|grep<space>
-nmap <Leader>qf :Qfdo
+nmap <Leader>f :copen\|grep<Space>
+nmap <Leader>qf :Qfdo<Space>
 nmap <Leader>m :ZoomWin<CR>
 vmap <Leader>> >gv
 vmap <Leader>< <gv
