@@ -61,11 +61,6 @@ set wildignore+=*.cache.php,*.php.meta
 " Status bar
 set laststatus=2
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
 " Per-project settings
 set exrc
 set secure
