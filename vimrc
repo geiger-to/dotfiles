@@ -53,8 +53,10 @@ vnoremap / /\v
 
 " Tab completion
 set wildmode=list:longest,list:full
+
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,*/vendor/gems/*
 set wildignore+=*.pyc,*.pyo,*.egg-info,*.egg,*/env/*
+set wildignore+=*.cache.php,*.php.meta
 
 " Status bar
 set laststatus=2
@@ -72,7 +74,6 @@ set secure
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'mileszs/ack.vim'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'tpope/vim-git'
 Bundle 'pangloss/vim-javascript'
@@ -89,7 +90,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'scrooloose/syntastic'
 Bundle 'juvenn/mustache.vim'
 Bundle 'vim-scripts/EasyGrep'
-Bundle 'ciaranm/detectindent'
+Bundle 'conormcd/matchindent.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-haml'
 
@@ -152,9 +153,6 @@ let g:EasyGrepCommand = 1
 " Use ack for grepping
 set grepprg=ack
 
-" Ignore cached files
-set wildignore+=*.cache.php,*.php.meta
-
 " Auto save files
 autocmd CursorHold,CursorHoldI * silent! wa
 
@@ -183,7 +181,7 @@ nmap <Leader>q :q<CR>
 
 " Bindings
 map  <Leader>/ <plug>NERDCommenterToggle
-nmap <Leader>f :Ack<space>
+nmap <Leader>f :Grep<space>
 nmap <Leader>r :Replace<space>
 nmap <Leader>m :ZoomWin<CR>
 vmap <Leader>> >gv
