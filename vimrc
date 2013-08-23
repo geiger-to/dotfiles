@@ -79,6 +79,7 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'conormcd/matchindent.vim'
 Bundle 'svermeulen/vim-quickfixdo'
+Bundle 'bling/vim-airline'
 
 " Syntax plugins
 Bundle 'tpope/vim-markdown'
@@ -174,5 +175,8 @@ vmap <Leader>> >gv
 vmap <Leader>< <gv
 
 " Fugitive
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>ga :Gadd<CR>
+nmap <Leader>gc :Gcommit<CR>
 nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gd :Gdiff<CR>
