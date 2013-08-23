@@ -74,25 +74,26 @@ set secure
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'tpope/vim-git'
-Bundle 'pangloss/vim-javascript'
-Bundle 'ddollar/nerdcommenter'
+" Functionality plugins
+Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'tpope/vim-markdown'
-Bundle 'lepture/vim-jinja'
-Bundle 'jonathangeiger/Vim-PHP-Doc'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'scrooloose/syntastic'
-Bundle 'juvenn/mustache.vim'
-Bundle 'vim-scripts/EasyGrep'
 Bundle 'conormcd/matchindent.vim'
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'svermeulen/vim-quickfixdo'
+
+" Syntax plugins
+Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-git'
+Bundle 'pangloss/vim-javascript'
+Bundle 'lepture/vim-jinja'
+Bundle 'groenewege/vim-less'
+Bundle 'juvenn/mustache.vim'
+Bundle 'kchmck/vim-coffee-script'
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
@@ -144,14 +145,8 @@ set showcmd
 " Disable ctrlp's working path detection
 let g:ctrlp_working_path_mode = ''
 
-" Set defaults for EasyGrep
-let g:EasyGrepRecursive = 1
-let g:EasyGrepAllOptionsInExplorer = 1
-let g:EasyGrepEveryMatch = 1
-let g:EasyGrepCommand = 1
-
-" Use ack for grepping
-set grepprg=ack
+" Use git-grep for grepping
+set grepprg=git\ grep\ -n\ $*
 
 " Auto save files
 autocmd CursorHold,CursorHoldI * silent! wa
@@ -175,14 +170,10 @@ map <C-l> <C-w>l
 " New tab
 map <Leader>t :tabnew<CR>
 
-" Fast writing and quitting
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-
 " Bindings
 map  <Leader>/ <plug>NERDCommenterToggle
-nmap <Leader>f :Grep<space>
-nmap <Leader>r :Replace<space>
+nmap <Leader>f :copen\|grep<space>
+nmap <Leader>qf :Qfdo
 nmap <Leader>m :ZoomWin<CR>
 vmap <Leader>> >gv
 vmap <Leader>< <gv
