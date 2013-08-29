@@ -142,9 +142,6 @@ let g:ctrlp_working_path_mode = ''
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-" Use git-grep for grepping
-set grepprg=git\ grep\ -n\ $*
-
 " Auto save files
 autocmd CursorHold,CursorHoldI * silent! wa
 
@@ -179,7 +176,7 @@ map <Leader>t :tabnew<CR>
 
 " Bindings
 map  <Leader>/ <plug>NERDCommenterToggle
-nmap <Leader>f :copen\|grep<Space>
+nmap <Leader>f :copen\|:Ggrep<Space>
 nmap <Leader>qf :Qfdo<Space>
 nmap <Leader>m :ZoomWin<CR>
 vmap <Leader>> >gv
