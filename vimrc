@@ -88,6 +88,9 @@ Bundle 'groenewege/vim-less'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
 
+" Markdown files
+au BufRead,BufNewFile *.{md,markdown,mdown} set ft=markdown
+
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
