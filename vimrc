@@ -151,6 +151,9 @@ autocmd CursorHold,CursorHoldI * silent! wa
 " Balance window sizes automatically
 autocmd VimResized,BufNew * wincmd =
 
+" Open the containing folder of a file
+map <Leader>o :!open %:p:h<CR>
+
 " Fast writes
 map <Leader>w :w!<CR>
 map <Leader>wq :wq!<CR>
