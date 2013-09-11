@@ -142,8 +142,9 @@ set showcmd
 let g:ctrlp_working_path_mode = ''
 
 " Syntastic configuration
-let g:syntastic_disabled_filetypes = ['html']
-
+let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': ['html'] }
 " Airline configuration
 let g:airline_left_sep=''
 let g:airline_right_sep=''
