@@ -74,19 +74,18 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Functionality plugins
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'Shougo/unite'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'vim-scripts/ZoomWin'
+NeoBundle 'regedarek/ZoomWin'
 NeoBundle 'conormcd/matchindent.vim'
-NeoBundle 'svermeulen/vim-quickfixdo'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/gitignore'
 
 " Syntax plugins
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'pangloss/vim-javascript'
@@ -98,14 +97,8 @@ NeoBundle 'kchmck/vim-coffee-script'
 " Off we go...
 NeoBundleCheck
 
-" Markdown files
-au BufRead,BufNewFile *.{md,markdown,mdown} set ft=markdown
-
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-
-" Add coffeescript support
-au BufRead,BufNewFile *.coffee set ft=coffee
 
 " Add haml-coffee support
 au BufRead,BufNewFile *.hamlc set ft=haml
@@ -147,9 +140,6 @@ set directory=~/.vim/backup
 
 " Show (partial) command in the status line
 set showcmd
-
-" Disable ctrlp's working path detection
-let g:ctrlp_working_path_mode = ''
 
 " Airline configuration
 let g:airline_left_sep=''
@@ -193,7 +183,6 @@ map <Leader>t :tabnew<CR>
 " Bindings
 map  <Leader>/ <plug>NERDCommenterToggle
 nmap <Leader>f :copen\|:Ggrep<Space>
-nmap <Leader>qf :Qfdo<Space>
 nmap <Leader>m :ZoomWin<CR>
 vmap <Leader>> >gv
 vmap <Leader>< <gv
