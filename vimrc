@@ -90,16 +90,17 @@ NeoBundle 'Shougo/vimproc.vim', {
 \ }
 
 " Functionality plugins
-NeoBundle 'Shougo/unite.vim'                  " Unite, the core of this setup
-NeoBundle 'sheerun/vim-polyglot'              " Extra language support
-NeoBundle 'tpope/vim-sensible'                " Sensible defaults for vim
-NeoBundle 'tpope/vim-surround'                " Manipulate surrounding pairs
-NeoBundle 'tpope/vim-fugitive'                " Git integration
-NeoBundle 'regedarek/ZoomWin'                 " Quickly maximize the current split
-NeoBundle 'conormcd/matchindent.vim'          " Autodetect indent settings
-NeoBundle 'bling/vim-airline'                 " A prettier status bar
-NeoBundle 'vim-scripts/gitignore'             " Add .gitigore contents to wildignore
-NeoBundle 'scrooloose/nerdcommenter'          " Quickly comment lines
+NeoBundle 'Shougo/unite.vim'            " Unite, the core of this setup
+NeoBundle 'sheerun/vim-polyglot'        " Extra language support
+NeoBundle 'tpope/vim-sensible'          " Sensible defaults for vim
+NeoBundle 'tpope/vim-surround'          " Manipulate surrounding pairs
+NeoBundle 'tpope/vim-fugitive'          " Git integration
+NeoBundle 'regedarek/ZoomWin'           " Quickly maximize the current split
+NeoBundle 'conormcd/matchindent.vim'    " Autodetect indent settings
+NeoBundle 'bling/vim-airline'           " A prettier status bar
+NeoBundle 'vim-scripts/gitignore'       " Add .gitigore contents to wildignore
+NeoBundle 'scrooloose/nerdcommenter'    " Quickly comment lines
+NeoBundle 'jiangmiao/auto-pairs'        " Auto-add matching pairs
 
 " Add haml-coffee support
 au BufRead,BufNewFile *.{hamlc} set ft=haml
