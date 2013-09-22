@@ -89,33 +89,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 \    },
 \ }
 
-
-" Syntax plugins
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'lepture/vim-jinja'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'juvenn/mustache.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'plasticboy/vim-markdown'
-
-" Add haml-coffee support
-au BufRead,BufNewFile *.{hamlc} set ft=haml
-
-" Map .twig files as jinja templates
-au BufRead,BufNewFile *.{twig} set ft=jinja
-
-" Don't wrap HTML
-au FileType html,jinja setlocal textwidth=0
-
-" Syntax configuration
-let g:vim_markdown_folding_disabled = 1
-
-
 " Functionality plugins
 NeoBundle 'Shougo/unite.vim'                  " Unite, the core of this setup
+NeoBundle 'sheerun/vim-polyglot'              " Extra language support
 NeoBundle 'tpope/vim-sensible'                " Sensible defaults for vim
 NeoBundle 'tpope/vim-surround'                " Manipulate surrounding pairs
 NeoBundle 'tpope/vim-fugitive'                " Git integration
@@ -124,6 +100,9 @@ NeoBundle 'conormcd/matchindent.vim'          " Autodetect indent settings
 NeoBundle 'bling/vim-airline'                 " A prettier status bar
 NeoBundle 'vim-scripts/gitignore'             " Add .gitigore contents to wildignore
 NeoBundle 'scrooloose/nerdcommenter'          " Quickly comment lines
+
+" Add haml-coffee support
+au BufRead,BufNewFile *.{hamlc} set ft=haml
 
 " Plugin mappings
 noremap  \\ <plug>NERDCommenterToggle
