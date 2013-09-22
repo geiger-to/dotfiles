@@ -62,31 +62,41 @@ set laststatus=2
 set exrc
 set secure
 
-" Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" Configure and install NeoBundle
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage itself
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Functionality plugins
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'ervandew/supertab'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'conormcd/matchindent.vim'
-Bundle 'svermeulen/vim-quickfixdo'
-Bundle 'bling/vim-airline'
-Bundle 'vim-scripts/gitignore'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'vim-scripts/ZoomWin'
+NeoBundle 'conormcd/matchindent.vim'
+NeoBundle 'svermeulen/vim-quickfixdo'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-scripts/gitignore'
 
 " Syntax plugins
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-git'
-Bundle 'pangloss/vim-javascript'
-Bundle 'lepture/vim-jinja'
-Bundle 'groenewege/vim-less'
-Bundle 'juvenn/mustache.vim'
-Bundle 'kchmck/vim-coffee-script'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'tpope/vim-git'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'lepture/vim-jinja'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'juvenn/mustache.vim'
+NeoBundle 'kchmck/vim-coffee-script'
+
+" Off we go...
+NeoBundleCheck
 
 " Markdown files
 au BufRead,BufNewFile *.{md,markdown,mdown} set ft=markdown
