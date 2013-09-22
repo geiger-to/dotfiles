@@ -1,68 +1,78 @@
 set nocompatible
-filetype off
 
-set number
-set ruler
-set colorcolumn=80
-syntax on
+" Hi. :)
+color solarized
 
-" Visual things
-set linespace=5
-set guifont=Menlo:h12
-set cursorline
+" Visual tweaks
+set number                         " Show line numbers
+set colorcolumn=80                 " Highlight the 80th column for help with
+set guifont=Menlo:h12              " I line Menlo :)
+set cursorline                     " Highlight the line that the cursor is one
+set spell                          " Highlight spelling mistakes
+set hidden                         " Keep closed buffers around.
+set nobackup                       " Ignore the backup and swap file. These settings
+set noswapfile                     " tend to become nuisances rather than helpful.
+set clipboard=unnamed              " Share the system clipboard with vim
+set nowrap                         " Do not wrap long lines
+set background=dark                " Prefer dark backgrounds like a true programmer
+set list listchars=tab:·\ ,trail:• " Show invisibles properly
 
-" Common tweaks
-set history=1000
-let mapleader = ","
-inoremap jj <ESC>
-set spell
+" Whitespace
+set textwidth=80                   " Try to keep files within 80 or so lines
+set expandtab                      " Prefer spaces
+set tabstop=4                      " Prefer files with four spaces
+set shiftwidth=4
+set softtabstop=4
 
-" Share the system clipboard with vim
-set clipboard=unnamed
+" Searching
+set gdefault                       " Automatically add the /g to replacements
+set ignorecase                     " Ignore case when searching...
+set smartcase                      " but use smart case
+
+" Allow per-project settings
+set exrc
+set secure
 
 " Context-dependent cursor in the terminal
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-set encoding=utf-8
+" Auto commands
+autocmd CursorHold,CursorHoldI * silent! wa      " Auto-save
+autocmd VimResized,BufNew * wincmd =             " Auto balance splits
 
-" Whitespace stuff
-set nowrap
-set textwidth=79
-set autoindent
-set copyindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noexpandtab
+" Helpful mappings
+let mapleader = " "       " Use space as the leader key
 
-" Nice invisibles
-set list listchars=tab:·\ ,trail:•
-set fileformats=unix
+" Because ESC is just too far away
+inoremap jj <ESC>
 
-" Searching
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
+" Open the containing folder of a file
+nnoremap <Leader>o :!open %:p:h<CR>
 
-" Tab completion
-set wildmode=list:longest,list:full
+" Fast writes and quits
+nnoremap <Leader>w :w!<CR>
+nnoremap <Leader>q :q!<CR>
+nnoremap <Leader>wq :wq!<CR>
 
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,*/vendor/gems/*
-set wildignore+=*.pyc,*.pyo,*.egg-info,*.egg,*/env/*
-set wildignore+=*.cache.php,*.php.meta
+" Toggle search highlighting
+nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 
-" Status bar
-set laststatus=2
+" Quickly create new splits
+nnoremap <Leader>v :botright vnew<CR><C-W>l
+nnoremap <Leader>s :belowright new<CR><C-W>j
 
-" Per-project settings
-set exrc
-set secure
+" Quickly move around splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Configure and install NeoBundle
+" Quickly change indent
+vnoremap <C-l> >gv
+vnoremap <C-h> <gv
+
+" Initialize NeoBundle
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -72,20 +82,16 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage itself
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Functionality plugins
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/unite'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'regedarek/ZoomWin'
-NeoBundle 'conormcd/matchindent.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-scripts/gitignore'
+" Install and build vimproc
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'mac' : 'make -f make_mac.mak',
+\    },
+\ }
+
 
 " Syntax plugins
-NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'pangloss/vim-javascript'
@@ -93,103 +99,98 @@ NeoBundle 'lepture/vim-jinja'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'juvenn/mustache.vim'
 NeoBundle 'kchmck/vim-coffee-script'
-
-" Off we go...
-NeoBundleCheck
-
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+NeoBundle 'plasticboy/vim-markdown'
 
 " Add haml-coffee support
-au BufRead,BufNewFile *.hamlc set ft=haml
-
-" add json syntax highlighting
-au BufRead,BufNewFile *.json set ft=javascript
+au BufRead,BufNewFile *.{hamlc} set ft=haml
 
 " Map .twig files as jinja templates
 au BufRead,BufNewFile *.{twig} set ft=jinja
 
-" Add .less highlighting
-au BufRead,BufNewFile *.{less} set ft=less
-
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
-
-" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-au FileType python setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
-
-" PHP and more
-au FileType php,css,html,jinja,javascript setlocal expandtab softtabstop=4 tabstop=4 shiftwidth=4
-
 " Don't wrap HTML
 au FileType html,jinja setlocal textwidth=0
 
-" Ruby
-au FileType ruby,coffee,haml,yaml setlocal expandtab shiftwidth=2 softtabstop=2
+" Syntax configuration
+let g:vim_markdown_folding_disabled = 1
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
 
-" Default color scheme
-color solarized
-set background=dark
+" Functionality plugins
+NeoBundle 'Shougo/unite.vim'                  " Unite, the core of this setup
+NeoBundle 'tpope/vim-sensible'                " Sensible defaults for vim
+NeoBundle 'tpope/vim-surround'                " Manipulate surrounding pairs
+NeoBundle 'tpope/vim-fugitive'                " Git integration
+NeoBundle 'regedarek/ZoomWin'                 " Quickly maximize the current split
+NeoBundle 'conormcd/matchindent.vim'          " Autodetect indent settings
+NeoBundle 'bling/vim-airline'                 " A prettier status bar
+NeoBundle 'vim-scripts/gitignore'             " Add .gitigore contents to wildignore
+NeoBundle 'scrooloose/nerdcommenter'          " Quickly comment lines
 
-" Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+" Plugin mappings
+noremap  \\ <plug>NERDCommenterToggle
 
-" Show (partial) command in the status line
-set showcmd
+" Git integration all under <Leader>g
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>ga :Gadd<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+
+" Ctrl[P]-style fuzzy file search
+nnoremap <Leader>p :Unite -no-split -start-insert file_rec/async<CR>
+
+" [B]rowse files
+nnoremap <Leader>b :Unite -no-split -start-insert file<CR>
+
+" [N]ew file
+nnoremap <Leader>n :Unite -no-split -start-insert file/new<CR>
+
+" [F]ind text in files
+nnoremap <Leader>f :Unite -vertical -no-quit grep:.<CR>
+
+" Quickly maximize windows
+nnoremap <Leader>m :ZoomWin<CR>
 
 " Airline configuration
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_left_sep = ''      " Disable airline's pretty separators. I'm
+let g:airline_right_sep = ''     " too lazy to install the patched font.
 
-" Auto save files
-autocmd CursorHold,CursorHoldI * silent! wa
+" NERDCommenter configuration
+let g:NERDSpaceDelims = 1        " Add spaces after comments
+let g:NERDRemoveExtraSpaces = 1  " Remove spaces around comments on removal
 
-" Balance window sizes automatically
-autocmd VimResized,BufNew * wincmd =
+" Unite configuration
+let unite = neobundle#get('unite.vim')
+function! unite.hooks.on_source(bundle)
+  " Add fuzzy match and ranking for CtrlP-style functionality
+  call unite#custom#source('file,file_mru,file_rec,file_rec/async',
+      \ 'matchers', ['matcher_fuzzy', 'matcher_hide_hidden_files'])
+  call unite#custom#source('file,file_mru,file_rec,file_rec/async',
+      \ 'sorters', ['sorter_rank'])
+endfunction
 
-" Open the containing folder of a file
-map <Leader>o :!open %:p:h<CR>
+" Unite is nowhere near as fast as CtrlP for pure fuzzy match searches,
+" but when vim is compiled with lua support and git is used for listing
+" files we get pretty close.
+let g:unite_source_rec_max_cache_files = 10000
+let g:unite_source_rec_async_command = 'git ls-files'
 
-" Fast writes
-map <Leader>w :w!<CR>
-map <Leader>wq :wq!<CR>
+" Enable remembering yanks, for the unite's history/yank source
+let g:unite_source_history_yank_enable  =  1
 
-" Search improvements
-map <Space> /
+" Unite checks if the command is executable, but unfortunately
+" `git grep` will return false in that case, so hack around it.
+let g:unite_source_grep_command = 'git'
+let g:unite_source_grep_default_opts = '--no-pager grep -inH --no-color'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 5000
 
-" Toggle search highlighting
-map <Leader><Space> :set hlsearch!<CR><esc>
+" Make unite friendlier when it is open
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+  nmap <buffer> <ESC>   <Plug>(unite_exit)
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
 
-" Fast resizing of splits
-map <C-=> <C-w>=
-
-" New splits
-map <Leader>v :botright vnew<CR><C-W>l
-map <Leader>s :belowright new<CR><C-W>j
-
-" Split movement
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" New tab
-map <Leader>t :tabnew<CR>
-
-" Bindings
-map  <Leader>/ <plug>NERDCommenterToggle
-nmap <Leader>f :copen\|:Ggrep<Space>
-nmap <Leader>m :ZoomWin<CR>
-vmap <Leader>> >gv
-vmap <Leader>< <gv
-
-" Fugitive
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>ga :Gadd<CR>
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gb :Gblame<CR>
-nmap <Leader>gd :Gdiff<CR>
+" Let NeoBundle ensure everything is properly installed
+NeoBundleCheck
