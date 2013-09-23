@@ -106,7 +106,7 @@ NeoBundle 'jiangmiao/auto-pairs'        " Auto-add matching pairs
 au BufRead,BufNewFile *.{hamlc} set ft=haml
 
 " Plugin mappings
-noremap  \\ <plug>NERDCommenterToggle
+map \\ <plug>NERDCommenterToggle
 
 " Git integration all under <Leader>g
 nnoremap <Leader>gs :Gstatus<CR>
