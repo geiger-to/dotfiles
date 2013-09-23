@@ -100,7 +100,6 @@ NeoBundle 'conormcd/matchindent.vim'    " Autodetect indent settings
 NeoBundle 'bling/vim-airline'           " A prettier status bar
 NeoBundle 'vim-scripts/gitignore'       " Add .gitigore contents to wildignore
 NeoBundle 'scrooloose/nerdcommenter'    " Quickly comment lines
-NeoBundle 'jiangmiao/auto-pairs'        " Auto-add matching pairs
 
 " Add haml-coffee support
 au BufRead,BufNewFile *.{hamlc} set ft=haml
