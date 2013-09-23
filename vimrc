@@ -102,6 +102,11 @@ NeoBundle 'vim-scripts/gitignore'       " Add .gitigore contents to wildignore
 NeoBundle 'scrooloose/nerdcommenter'    " Quickly comment lines
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'          " Auto-generate tags
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'mac' : './install.sh --clang-completer',
+\    },
+\ }
 
 " Add haml-coffee support
 au BufRead,BufNewFile *.{hamlc} set ft=haml
