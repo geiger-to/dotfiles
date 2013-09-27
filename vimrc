@@ -158,7 +158,7 @@ endfunction
 " but when vim is compiled with lua support and git is used for listing
 " files we get pretty close.
 let g:unite_source_rec_max_cache_files = 10000
-let g:unite_source_rec_async_command = 'git ls-files'
+let g:unite_source_rec_async_command = 'git ls-files -co --exclude-standard'
 
 " Enable remembering yanks, for the unite's history/yank source
 let g:unite_source_history_yank_enable  =  1
