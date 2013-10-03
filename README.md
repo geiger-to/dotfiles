@@ -4,5 +4,5 @@ My vim configuration.
 
 Run the following:
 
-    git clone --recursive git://github.com/gigr/vim-config.git
+    git clone --recursive https://github.com/gigr/vim-config.git
     cd vim-config && make install
