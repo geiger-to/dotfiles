@@ -149,6 +149,9 @@ set nocompatible
   " Show an [o]utline of the file with tagbar
   nnoremap <Leader>o :TagbarToggle<CR>
 
+  " Start Easy Align's interactive mode
+  vnoremap <silent> <Space> :EasyAlign<CR>
+
   " Disable these mappings which I tend to just
   " fat-finger and end up getting in my way
   map K k
@@ -254,6 +257,9 @@ set nocompatible
 
   " Add similar support for ruby and vim
   NeoBundle 'tpope/vim-endwise'
+
+  " Add support for easy alignment
+  NeoBundle 'junegunn/vim-easy-align'
 
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
