@@ -91,15 +91,15 @@ set nocompatible
   noremap ;; :
 
   " Fast [w]rites and [q]uits
-  nnoremap ;w :w!<CR>
-  nnoremap ;q :q!<CR>
-  nnoremap ;wq :wq!<CR>
+  nnoremap <Leader>w :w!<CR>
+  nnoremap <Leader>wq :wq!<CR>
+  nnoremap <Leader>q :q!<CR>
 
   " Fast [r]emoval of files
-  nnoremap ;rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
+  nnoremap <Leader>frm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
 
-  " [O]pen the containing folder of a file
-  nnoremap <Leader>o :silent !open -Rg %<CR>:redraw!<CR>
+  " [O]pen the containing folder of a file in Finder
+  nnoremap <Leader>fo :silent !open -Rg %<CR>:redraw!<CR>
 
   " Toggle search highlighting
   nnoremap <Leader><Space> :set hlsearch!<CR><esc>
@@ -138,20 +138,17 @@ set nocompatible
   " Fuzzy filename searching with ctrl-[p]
   let g:ctrlp_map = '<Leader>p'
 
-  " Open up the [d]irectory with NERDTree
-  nnoremap <Leader>= :NERDTreeToggle<CR>
+  " [E]xplore the filesystem with NERDTree
+  nnoremap <Leader>e :NERDTreeToggle<CR>
 
-  " [F]ile search with ag, aka the silver searcher
-  nnoremap <Leader>f :Ag ''<Left>
+  " Grep with [a]g, aka the silver searcher
+  nnoremap <Leader>a :Ag ''<Left>
 
   " Quickly [m]aximize a split
   nnoremap <Leader>m :ZoomWin<CR>
 
-  " Open up [t]agbar and display tags for the active buffer
-  nnoremap <Leader>t :TagbarToggle<CR>
-
-  " Align code based on a character
-  vnoremap <Leader><Leader> :Align
+  " Show an [o]utline of the file with tagbar
+  nnoremap <Leader>o :TagbarToggle<CR>
 
   " Disable these mappings which I tend to just
   " fat-finger and end up getting in my way
@@ -178,6 +175,16 @@ set nocompatible
   " use the diff highlighting by default.
   let g:gitgutter_enabled = 0
   let g:gitgutter_highlight_lines = 1
+
+  " Open tagbar on the left, just like nerdtree
+  let g:tagbar_left = 1
+
+  " Have tagbar automatically focus and close once a tag is selected
+  let g:tagbar_autofocus = 1
+  let g:tagbar_autoclose = 1
+
+  " Sort by the order in the file, not by name
+  let g:tagbar_sort = 0
 " }}}
 
 " Bundles {{{
@@ -241,9 +248,6 @@ set nocompatible
   " Auto-generate tags files
   NeoBundle 'xolox/vim-misc'
   NeoBundle 'xolox/vim-easytags'
-
-  " Quickly align based on a character
-  NeoBundle 'vim-scripts/Align'
 
   " Auto close parenthesis and other commonly
   " used delimiters. Doesn't do shit for ruby or vim.
