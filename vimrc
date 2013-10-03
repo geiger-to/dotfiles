@@ -86,16 +86,19 @@ set nocompatible
   " Because ESC is just too far away
   inoremap jj <ESC>
 
+  " And Shift-; is just too darn difficult
+  map ; :
+
   " [O]pen the containing folder of a file
   nnoremap <Leader>o :!open %:p:h<CR>
 
   " Fast [w]rites and [q]uits
-  nnoremap <Leader>w :w!<CR>
-  nnoremap <Leader>q :q!<CR>
-  nnoremap <Leader>wq :wq!<CR>
+  nnoremap ;w :w!<CR>
+  nnoremap ;q :q!<CR>
+  nnoremap ;wq :wq!<CR>
 
   " Fast [r]emoval of files
-  nnoremap <Leader>rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
+  nnoremap ;rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
 
   " Toggle search highlighting
   nnoremap <Leader><Space> :set hlsearch!<CR><esc>
@@ -107,9 +110,13 @@ set nocompatible
 
   " Quickly move around splits
   nnoremap <C-h> <C-w>h
+  nnoremap <Leader>h <C-w>h
   nnoremap <C-j> <C-w>j
+  nnoremap <Leader>j <C-w>j
   nnoremap <C-k> <C-w>k
+  nnoremap <Leader>k <C-w>k
   nnoremap <C-l> <C-w>l
+  nnoremap <Leader>l <C-w>l
 
   " Quickly change indent
   vnoremap <C-l> >gv
