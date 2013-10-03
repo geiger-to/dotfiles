@@ -124,11 +124,10 @@ set nocompatible
 
   " [G]it integration
   nnoremap <Leader>gs :Gstatus<CR>
-  nnoremap <Leader>ga :Gadd<CR>
   nnoremap <Leader>gc :Gcommit<CR>
   nnoremap <Leader>gb :Gblame<CR>
   nnoremap <Leader>gd :Gdiff<CR>
-  nnoremap <Leader>gca :Git commit --amend<CR>
+  nnoremap <Leader>ga :Git commit --amend<CR>
 
   " Git [d]iff in the gutter. There's some sort of bug with the background
   " colour that's fixed with running it this way. Adding the first
