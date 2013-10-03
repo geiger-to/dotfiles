@@ -153,15 +153,15 @@ endfunction
 " but when vim is compiled with lua support and git is used for listing
 " files we get pretty close.
 let g:unite_source_rec_max_cache_files = 10000
-let g:unite_source_rec_async_command = 'git ls-files -co --exclude-standard'
+let g:unite_source_rec_async_command = 'ag -l --nocolor -g ""'
 
 " Enable remembering yanks, for the unite's history/yank source
 let g:unite_source_history_yank_enable  =  1
 
 " Unite checks if the command is executable, but unfortunately
 " `git grep` will return false in that case, so hack around it.
-let g:unite_source_grep_command = 'git'
-let g:unite_source_grep_default_opts = '--no-pager grep -inH --no-color'
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '--nogroup --nocolor'
 let g:unite_source_grep_recursive_opt = ''
 let g:unite_source_grep_max_candidates = 5000
 
