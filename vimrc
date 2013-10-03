@@ -1,177 +1,251 @@
+" ex: set foldmethod=marker
 set nocompatible
 
-" Hi. :)
-color solarized
+" Behaviour {{{
 
-" Visual tweaks
-set number                         " Show line numbers
-set colorcolumn=80                 " Highlight the 80th column for help with
-set guifont=Menlo:h12              " I line Menlo :)
-set cursorline                     " Highlight the line that the cursor is one
-set spell                          " Highlight spelling mistakes
-set hidden                         " Keep closed buffers around.
-set nobackup                       " Ignore the backup and swap file. These settings
-set noswapfile                     " tend to become nuisances rather than helpful.
-set clipboard=unnamed              " Share the system clipboard with vim
-set nowrap                         " Do not wrap long lines
-set background=dark                " Prefer dark backgrounds like a true programmer
-set list listchars=tab:·\ ,trail:• " Show invisibles properly
+  " She's a beaut!
+  color solarized
 
-" Whitespace
-set textwidth=80                   " Try to keep files within 80 or so lines
-set expandtab                      " Prefer spaces
-set tabstop=4                      " Prefer files with four spaces
-set shiftwidth=4
-set softtabstop=4
+  " True programmers use dark backgrounds
+  set background=dark
 
-" Searching
-set gdefault                       " Automatically add the /g to replacements
-set ignorecase                     " Ignore case when searching...
-set smartcase                      " but use smart case
+  " Show line numbers
+  set number
 
-" Allow per-project settings
-set exrc
-set secure
+  " Show common line limits
+  set colorcolumn=80,120
 
-" Context-dependent cursor in the terminal
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  " Highlight the line that the cursor is on
+  set cursorline
 
-" Auto commands
-autocmd CursorHold,CursorHoldI * silent! wa      " Auto-save
-autocmd VimResized,BufNew * wincmd =             " Auto balance splits
+  " Underline spelling mistakes
+  set spell
 
-" Helpful mappings
-let mapleader = " "       " Use space as the leader key
+  " Keep closed buffers around
+  set hidden
 
-" Because ESC is just too far away
-inoremap jj <ESC>
+  " Ignore backup files as these settings tend to become
+  " nuisances over time, rather than help.
+  set nobackup
+  set noswapfile
 
-" Open the containing folder of a file
-nnoremap <Leader>o :!open %:p:h<CR>
+  " Share the system clipboard with vim
+  set clipboard=unnamed
 
-" Fast writes and quits
-nnoremap <Leader>w :w!<CR>
-nnoremap <Leader>q :q!<CR>
-nnoremap <Leader>wq :wq!<CR>
+  " Do not wrap lines
+  set nowrap
 
-" Toggle search highlighting
-nnoremap <Leader><Space> :set hlsearch!<CR><esc>
+  " Properly show invisibles
+  set list listchars=tab:·\ ,trail:•
 
-" Quickly create new splits
-nnoremap <Leader>v :botright vnew<CR><C-W>l
-nnoremap <Leader>s :belowright new<CR><C-W>j
+  " Wrap at 80 lines. It's still important.
+  set textwidth=80
 
-" Quickly move around splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+  " Indent with two spaces. These settings will most likely
+  " be autodetected by the autoindent plugin anyway.
+  set expandtab
+  set tabstop=2
+  set shiftwidth=2
+  set softtabstop=2
 
-" Quickly change indent
-vnoremap <C-l> >gv
-vnoremap <C-h> <gv
+  " Search globally by default
+  set gdefault
 
-" Initialize NeoBundle
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+  " Case-insensitive searches by default until you type
+  " a captial letter, then switch to case-sensitive
+  set ignorecase
+  set smartcase
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+  " Auto-reload files changed on disk
+  set autoread
 
-" Let NeoBundle manage itself
-NeoBundleFetch 'Shougo/neobundle.vim'
+  " Show context above and below the curoser
+  set scrolloff=3
 
-" Install and build vimproc
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'mac' : 'make -f make_mac.mak',
-\    },
-\ }
+  " Show a navigable menu for tab completion
+  set wildmenu
 
-" Functionality plugins
-NeoBundle 'Shougo/unite.vim'            " Unite, the core of this setup
-NeoBundle 'sheerun/vim-polyglot'        " Extra language support
-NeoBundle 'tpope/vim-sensible'          " Sensible defaults for vim
-NeoBundle 'tpope/vim-surround'          " Manipulate surrounding pairs
-NeoBundle 'tpope/vim-fugitive'          " Git integration
-NeoBundle 'regedarek/ZoomWin'           " Quickly maximize the current split
-NeoBundle 'conormcd/matchindent.vim'    " Autodetect indent settings
-NeoBundle 'bling/vim-airline'           " A prettier status bar
-NeoBundle 'vim-scripts/gitignore'       " Add .gitigore contents to wildignore
-NeoBundle 'scrooloose/nerdcommenter'    " Quickly comment lines
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'          " Auto-generate tags
+  " Allow per-project settings
+  set exrc
+  set secure
 
-" Add haml-coffee support
-au BufRead,BufNewFile *.{hamlc} set ft=haml
+  " Context-dependent cursor in the terminal
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" Plugin mappings
-map \\ <plug>NERDCommenterToggle
+  " Auto-save after a brief period of time
+  autocmd CursorHold,CursorHoldI * silent! wa
 
-" Git integration all under <Leader>g
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>ga :Gadd<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gd :Gdiff<CR>
+  " Automatically balance spluts
+  autocmd VimResized,BufNew * wincmd =
 
-" Ctrl[P]-style fuzzy file search
-nnoremap <Leader>p :Unite -no-split -start-insert file_rec/async<CR>
+" }}}
 
-" [B]rowse files
-nnoremap <Leader>b :Unite -no-split -start-insert file<CR>
+" Mappings {{{
 
-" [N]ew file
-nnoremap <Leader>n :Unite -no-split -start-insert file/new<CR>
+  " Even better than the comma
+  let mapleader = " "
 
-" [F]ind text in files
-nnoremap <Leader>f :Unite -vertical -no-quit grep:.<CR>
+  " Because ESC is just too far away
+  inoremap jj <ESC>
 
-" Quickly maximize windows
-nnoremap <Leader>m :ZoomWin<CR>
+  " [O]pen the containing folder of a file
+  nnoremap <Leader>o :!open %:p:h<CR>
 
-" Airline configuration
-let g:airline_left_sep = ''      " Disable airline's pretty separators. I'm
-let g:airline_right_sep = ''     " too lazy to install the patched font.
+  " Fast [w]rites and [q]uits
+  nnoremap <Leader>w :w!<CR>
+  nnoremap <Leader>q :q!<CR>
+  nnoremap <Leader>wq :wq!<CR>
 
-" NERDCommenter configuration
-let g:NERDSpaceDelims = 1        " Add spaces after comments
-let g:NERDRemoveExtraSpaces = 1  " Remove spaces around comments on removal
+  " Fast [r]emoval of files
+  nnoremap <Leader>rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
 
-" Unite configuration
-let unite = neobundle#get('unite.vim')
-function! unite.hooks.on_source(bundle)
-  " Add fuzzy match and ranking for CtrlP-style functionality
-  call unite#custom#source('file,file_mru,file_rec,file_rec/async',
-      \ 'matchers', ['matcher_fuzzy', 'matcher_hide_hidden_files'])
-  call unite#custom#source('file,file_mru,file_rec,file_rec/async',
-      \ 'sorters', ['sorter_rank'])
-endfunction
+  " Toggle search highlighting
+  nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 
-" Unite is nowhere near as fast as CtrlP for pure fuzzy match searches,
-" but when vim is compiled with lua support and git is used for listing
-" files we get pretty close.
-let g:unite_source_rec_max_cache_files = 10000
-let g:unite_source_rec_async_command = 'ag -l --nocolor -g ""'
+  " Quickly create new splits. These have a nice, simple
+  " way of opening up that's similar to sublime.
+  nnoremap <Leader>v :botright vnew<CR><C-W>l
+  nnoremap <Leader>s :belowright new<CR><C-W>j
 
-" Enable remembering yanks, for the unite's history/yank source
-let g:unite_source_history_yank_enable  =  1
+  " Quickly move around splits
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
 
-" Unite checks if the command is executable, but unfortunately
-" `git grep` will return false in that case, so hack around it.
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_grep_max_candidates = 5000
+  " Quickly change indent
+  vnoremap <C-l> >gv
+  vnoremap <C-h> <gv
 
-" Make unite friendlier when it is open
-autocmd FileType unite call s:unite_my_settings()
-function! s:unite_my_settings()
-  nmap <buffer> <ESC>   <Plug>(unite_exit)
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
+  " Quickly toggle code comments
+  map \\ <plug>NERDCommenterToggle
 
-" Let NeoBundle ensure everything is properly installed
-NeoBundleCheck
+  " [G]it integration
+  nnoremap <Leader>gs :Gstatus<CR>
+  nnoremap <Leader>ga :Gadd<CR>
+  nnoremap <Leader>gc :Gcommit<CR>
+  nnoremap <Leader>gb :Gblame<CR>
+  nnoremap <Leader>gd :Gdiff<CR>
+  nnoremap <Leader>gca :Git commit --amend<CR>
+
+  " Git [d]iff in the gutter. There's some sort of bug with the background
+  " colour that's fixed with running it this way. Adding the first
+  " statement doesn't fix anything if I do it inline...
+  nnoremap <Leader>d :hi clear SignColumn<CR> :GitGutterToggle<CR>
+
+  " Fuzzy filename searching with ctrl-[p]
+  let g:ctrlp_map = '<Leader>p'
+
+  " [F]ile search with ag, aka the silver searcher
+  nnoremap <Leader>f :Ag ''<Left>
+
+  " Quickly [m]aximize a split
+  nnoremap <Leader>m :ZoomWin<CR>
+
+  " Open up [t]agbar and display tags for the active buffer
+  nnoremap <Leader>t :TagbarToggle<CR>
+
+  " Align code based on a character
+  vnoremap <Leader><Leader> :Align
+
+  " Disable these mappings which I tend to just
+  " fat-finger and end up getting in my way
+  map K k
+  map J j
+
+  " But [K] is very useful, so keep it around
+  nnoremap <Leader>k K
+
+" }}}
+
+" Configuration {{{
+"
+  " Disable airline's pretty separators because
+  " I'm too lazy to use the patched font.
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+
+  " Add spaces after comments and remove them when removing comments
+  let g:NERDSpaceDelims = 1
+  let g:NERDRemoveExtraSpaces = 1
+
+  " Only show git gutter when requested,
+  " use the diff highlighting by default.
+  let g:gitgutter_enabled = 0
+  let g:gitgutter_highlight_lines = 1
+" }}}
+
+" Bundles {{{
+
+  " Initialize NeoBundle
+  if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+
+  call neobundle#rc(expand('~/.vim/bundle/'))
+
+  " Let NeoBundle manage itself
+  NeoBundleFetch 'Shougo/neobundle.vim'
+
+  " Use a bunch of sensible defaults for vim,
+  " approved the by the reverend Tim Pope
+  NeoBundle 'tpope/vim-sensible'
+
+  " The ever-famous, for fuzzy file searching
+  NeoBundle 'kien/ctrlp.vim'
+
+  " Integrate with bundler
+  NeoBundle 'tpope/vim-bundler'
+
+  " Indicate the diff of the file in the gutter
+  NeoBundle 'airblade/vim-gitgutter'
+
+  " Add amazing git integration
+  NeoBundle 'tpope/vim-fugitive'
+
+  " Easily manipulate surrounding pairs
+  NeoBundle 'tpope/vim-surround'
+
+  " Add support for even more languages
+  NeoBundle 'sheerun/vim-polyglot'
+
+  " Add searching with ag
+  NeoBundle 'rking/ag.vim'
+
+  " Quickly maximize the current split
+  NeoBundle 'regedarek/ZoomWin'
+
+  " Auto-detect indentation settings
+  NeoBundle 'conormcd/matchindent.vim'
+
+  " Add a beautiful and useful status bar
+  NeoBundle 'bling/vim-airline'
+
+  " Add .gitignore contents to wildignore
+  NeoBundle 'vim-scripts/gitignore'
+
+  " Quickly comment lines
+  NeoBundle 'scrooloose/nerdcommenter'
+
+  " Outline tags in a pane
+  NeoBundle 'majutsushi/tagbar'
+
+  " Auto-generate tags files
+  NeoBundle 'xolox/vim-misc'
+  NeoBundle 'xolox/vim-easytags'
+
+  " Quickly align based on a character
+  NeoBundle 'vim-scripts/Align'
+
+  " Auto close parenthesis and other commonly
+  " used delimiters. Doesn't do shit for ruby or vim.
+  NeoBundle 'jiangmiao/auto-pairs'
+
+  " Add similar support for ruby and vim
+  NeoBundle 'tpope/vim-endwise'
+
+  " Let NeoBundle ensure everything is properly installed
+  NeoBundleCheck
+
+" }}}
