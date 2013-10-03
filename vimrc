@@ -111,13 +111,9 @@ set nocompatible
 
   " Quickly move around splits
   nnoremap <C-h> <C-w>h
-  nnoremap <Leader>h <C-w>h
   nnoremap <C-j> <C-w>j
-  nnoremap <Leader>j <C-w>j
   nnoremap <C-k> <C-w>k
-  nnoremap <Leader>k <C-w>k
   nnoremap <C-l> <C-w>l
-  nnoremap <Leader>l <C-w>l
 
   " Quickly change indent
   vnoremap <C-l> >gv
