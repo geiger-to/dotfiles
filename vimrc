@@ -21,9 +21,6 @@ set nocompatible
   " Underline spelling mistakes
   set spell
 
-  " Keep closed buffers around
-  set hidden
-
   " Ignore backup files as these settings tend to become
   " nuisances over time, rather than help.
   set nobackup
@@ -77,7 +74,7 @@ set nocompatible
   autocmd CursorHold,CursorHoldI * silent! wa
 
   " Automatically balance spluts
-  autocmd VimResized,BufNew * wincmd =
+  autocmd VimResized,BufNew !nerdtree wincmd =
 
 " }}}
 
@@ -136,6 +133,9 @@ set nocompatible
 
   " Fuzzy filename searching with ctrl-[p]
   let g:ctrlp_map = '<Leader>p'
+
+  " Open up the [d]irectory with NERDTree
+  nnoremap <Leader>d :NERDTreeToggle<CR>
 
   " [F]ile search with ag, aka the silver searcher
   nnoremap <Leader>f :Ag ''<Left>
@@ -206,6 +206,9 @@ set nocompatible
 
   " Easily manipulate surrounding pairs
   NeoBundle 'tpope/vim-surround'
+
+  " Use NERDTree for browsing files
+  NeoBundle 'scrooloose/nerdtree'
 
   " Add support for even more languages
   NeoBundle 'sheerun/vim-polyglot'
