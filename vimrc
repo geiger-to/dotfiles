@@ -87,10 +87,8 @@ set nocompatible
   inoremap jj <ESC>
 
   " And Shift-; is just too darn difficult
-  map ; :
-
-  " [O]pen the containing folder of a file
-  nnoremap <Leader>o :!open %:p:h<CR>
+  noremap ; :
+  noremap ;; :
 
   " Fast [w]rites and [q]uits
   nnoremap ;w :w!<CR>
@@ -99,6 +97,9 @@ set nocompatible
 
   " Fast [r]emoval of files
   nnoremap ;rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
+
+  " [O]pen the containing folder of a file
+  nnoremap <Leader>o :silent !open -Rg %<CR>:redraw!<CR>
 
   " Toggle search highlighting
   nnoremap <Leader><Space> :set hlsearch!<CR><esc>
@@ -142,7 +143,7 @@ set nocompatible
   let g:ctrlp_map = '<Leader>p'
 
   " Open up the [d]irectory with NERDTree
-  nnoremap <Leader>d :NERDTreeToggle<CR>
+  nnoremap <Leader>= :NERDTreeToggle<CR>
 
   " [F]ile search with ag, aka the silver searcher
   nnoremap <Leader>f :Ag ''<Left>
