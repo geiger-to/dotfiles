@@ -127,6 +127,7 @@ set nocompatible
   nnoremap <Leader>gc :Gcommit<CR>
   nnoremap <Leader>gb :Gblame<CR>
   nnoremap <Leader>gd :Gdiff<CR>
+  nnoremap <Leader>gp :Git push<CR>
   nnoremap <Leader>ga :Git commit --amend<CR>
 
   " Git [d]iff in the gutter. There's some sort of bug with the background
