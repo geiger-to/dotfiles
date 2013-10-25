@@ -73,8 +73,11 @@ set nocompatible
   " Auto-save after a brief period of time
   autocmd CursorHold,CursorHoldI * silent! wa
 
-  " Automatically balance spluts
+  " Automatically balance splits
   autocmd VimResized,BufNew !nerdtree wincmd =
+
+  " Most PHP is 4 spaces these days
+  au FileType php setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
 " }}}
 
