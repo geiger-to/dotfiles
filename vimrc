@@ -255,11 +255,7 @@ set nocompatible
   NeoBundle 'xolox/vim-misc'
   NeoBundle 'xolox/vim-easytags'
 
-  " Auto close parenthesis and other commonly
-  " used delimiters. Doesn't do shit for ruby or vim.
-  NeoBundle 'jiangmiao/auto-pairs'
-
-  " Add similar support for ruby and vim
+  " Add auto-closing of pairs for ruby and vim
   NeoBundle 'tpope/vim-endwise'
 
   " Add support for easy alignment
