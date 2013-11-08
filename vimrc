@@ -251,10 +251,6 @@ set nocompatible
   " Outline tags in a pane
   NeoBundle 'majutsushi/tagbar'
 
-  " Auto-generate tags files
-  NeoBundle 'xolox/vim-misc'
-  NeoBundle 'xolox/vim-easytags'
-
   " Add auto-closing of pairs for ruby and vim
   NeoBundle 'tpope/vim-endwise'
 
