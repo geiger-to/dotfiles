@@ -215,9 +215,6 @@ set nocompatible
   " The ever-famous, for fuzzy file searching
   NeoBundle 'kien/ctrlp.vim'
 
-  " Integrate with bundler
-  NeoBundle 'tpope/vim-bundler'
-
   " Indicate the diff of the file in the gutter
   NeoBundle 'airblade/vim-gitgutter'
 
