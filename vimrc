@@ -56,8 +56,8 @@ set nocompatible
   " Auto-reload files changed on disk
   set autoread
 
-  " Show context above and below the curoser
-  set scrolloff=3
+  " Show context above and below the cursor
+  set scrolloff=5
 
   " Wrap lines when moving around the file
   set whichwrap+=<,>,h,l
