@@ -59,6 +59,9 @@ set nocompatible
   " Show context above and below the curoser
   set scrolloff=3
 
+  " Wrap lines when moving around the file
+  set whichwrap+=<,>,h,l
+
   " Show a navigable menu for tab completion
   set wildmenu
 
