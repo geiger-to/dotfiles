@@ -257,6 +257,9 @@ set nocompatible
   " Add support for easy alignment
   NeoBundle 'junegunn/vim-easy-align'
 
+  " Add support for syntax error detection.
+  NeoBundle 'scrooloose/syntastic'
+
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
 
