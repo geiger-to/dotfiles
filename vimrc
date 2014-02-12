@@ -82,6 +82,9 @@ set nocompatible
   " Most PHP is 4 spaces these days
   au FileType php setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
+  " Treat ES6 as straight up Javascript, yo.
+  au BufNewFile,BufRead *.es6 set filetype=javascript
+
 " }}}
 
 " Mappings {{{
