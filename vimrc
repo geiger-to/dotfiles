@@ -144,9 +144,6 @@ set nocompatible
   " Fuzzy filename searching with ctrl-[p]
   let g:ctrlp_map = '<Leader>p'
 
-  " [E]xplore the filesystem with NERDTree
-  nnoremap <Leader>e :NERDTreeToggle<CR>
-
   " Grep with [a]g, aka the silver searcher
   nnoremap <Leader>a :Ag ''<Left>
 
@@ -224,9 +221,6 @@ set nocompatible
   " Easily manipulate surrounding pairs
   NeoBundle 'tpope/vim-surround'
 
-  " Use NERDTree for browsing files
-  NeoBundle 'scrooloose/nerdtree'
-
   " Add support for even more languages
   NeoBundle 'sheerun/vim-polyglot'
 
@@ -253,6 +247,9 @@ set nocompatible
 
   " Add auto-closing of pairs for ruby and vim
   NeoBundle 'tpope/vim-endwise'
+
+  " Show netrw in the current split.
+  NeoBundle 'tpope/vim-vinegar'
 
   " Add support for easy alignment
   NeoBundle 'junegunn/vim-easy-align'
