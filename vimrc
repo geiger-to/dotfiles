@@ -194,6 +194,9 @@ set nocompatible
 
   " Sort by the order in the file, not by name
   let g:tagbar_sort = 0
+
+  " Disable syntastic for HTML. It kind of sucks.
+  let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 " }}}
 
 " Bundles {{{
