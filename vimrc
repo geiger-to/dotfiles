@@ -70,8 +70,13 @@ set nocompatible
   set secure
 
   " Context-dependent cursor in the terminal
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
 
   " Auto-save after a brief period of time
   autocmd CursorHold,CursorHoldI * silent! wa
@@ -105,7 +110,7 @@ set nocompatible
   nnoremap <Leader>q :q!<CR>
 
   " Fast [r]emoval of files
-  nnoremap <Leader>frm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
+  nnoremap <Leader>rm :w!<CR>:call delete(expand('%'))<CR>:bdelete<CR>
 
   " [O]pen the containing folder of a file in Finder
   nnoremap <Leader>fo :silent !open -Rg %<CR>:redraw!<CR>
