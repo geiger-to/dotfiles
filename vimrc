@@ -118,12 +118,6 @@ set nocompatible
   nnoremap <Leader>v :botright vnew<CR><C-W>l
   nnoremap <Leader>s :belowright new<CR><C-W>j
 
-  " Quickly move around splits
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-l> <C-w>l
-
   " Quickly change indent
   vnoremap <C-l> >gv
   vnoremap <C-h> <gv
@@ -262,6 +256,9 @@ set nocompatible
 
   " Add support for syntax error detection.
   NeoBundle 'scrooloose/syntastic'
+
+  " Support moving around panes in both TMUX and VIM
+  NeoBundle 'christoomey/vim-tmux-navigator'
 
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
