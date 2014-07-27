@@ -1,8 +1,118 @@
-My vim configuration.
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::[__]::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::|  ‖::::::::::::;~=============================~;:::::::::::
+::::::::::::::::|  ‖:::::::::::|                                 |::::::::::
+::::::::::::::::|  ‖:::::::::::|                                 ‖::::::::::
+:::,~==~.::::::/`-. \::::::::::|            ~=======~            ‖::::::::::
+::(      )::::/-._|  \:::::::::|                                 ‖::::::::::
+::|`----'‖:::|        |::::::::|                                 ‖::::::::::
+::\      /:::|`-...   ‖::::::::|  .___________________________.  ‖::::::::::
+:::`.  ,'::::|'` . |  ‖::::::::|  |:::::::::::::::::::::::::::|  |::::::::::
+=~=~=||=~=~=~|`,'- |  ‖=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.::::
+   ,-||-.    |`-...|  ‖                                                 ‖:::
+  (  ''  )   |        |                                                 ‖:::
+   `----'     `-.__.-'                                                  ‖:::
 
-## Installation
 
-Run the following:
 
-    git clone --recursive https://github.com/gigr/vim-config.git
-    cd vim-config && make install
+         This is my vim configuration. I like it.
+              Maybe you will as well.
+
+
+
+
+    =>  Installation
+
+        $ git clone --recursive https://github.com/gigr/vim-config.git
+        $ cd vim-config && make install
+
+
+    =>  Overview
+
+        I'm trying to make this configuration dead simple to use, so
+        here's what you get at a glance.
+
+          - The beautiful solarized colour scheme.
+          - Auto-detected indentation settings.
+          - Integration with system clipboards.
+          - Easy splits that auto-balance themselves.
+          - Most commands behind the Leader key (spacebar, by default).
+          - TMUX integration.
+          - Autosave.
+
+    =>  Requirements
+
+        There's nothing out of the ordinary here, but this is what I
+        write code on. YMMV on other systems.
+
+          - A terminal that supports 256 colours, like iTerm.
+          - Vim 7.3+, with best results on Vim 7.4.
+
+
+    =>  Mappings
+
+        Most mappings are hidden behind the leader key, which has been
+        remapped to the spacebar. After a few uses the spacebar feels
+        right as rain.
+
+    =>  General mappings
+
+          jj                - Alias for ESC.
+          <Leader>w         - Write the active buffer.
+          <Leader>q         - Close the active buffer.
+          <Leader>wq        - Write and close the active buffer.
+          <Leader>rm        - Remove the active buffer from the filesystem.
+          <Leader><Space>   - Toggle search highlighting.
+
+    =>  Splits
+
+        Splits are automatically balanced whenever a new one is created,
+        so you always have a decent view of all active files and there's
+        no need to manually resize them.
+
+          <Leader>v         - Create a new vertical split to the right.
+                              of the active buffer. Auto-balance splits.
+          <Leader>s         - Create a new horizontal split below the
+                              active buffer. Auto-balance splits.
+          <Leader>m         - Maximize the active buffer and hide all other
+                              splits. Run this again to bring back the splits.
+          <Ctrl>h           - Move to the split to the left.
+          <Ctrl>j           - Move to the split below.
+          <Ctrl>k           - Move to the split above.
+          <Ctrl>l           - Move to the split to the right.
+
+    =>  Navigation
+
+          <Leader>p         - Bring up CtrlP, a fuzzy-file finder.
+          <Leader>a         - Search the current project with "Ag".
+          <Leader>o         - Bring up a sidebar with a list of tags.
+          <Leader>-         - Bring up the file explorer.
+          <Leader>fo        - Open the active buffer in Finder.
+
+
+    =>  Git integration (with fugitive.vim).
+
+          <Leader>gs        - Run "git status" in the current repo. You
+                              can stage and unstage files in here with "-".
+          <Leader>gc        - Run "git commit" in the current repo. You
+                              can write a commit message, then write and quit.
+          <Leader>ga        - Run "git commit --amend" which will allow you
+                              to modify the previous commits message and files.
+          <Leader>gb        - Run "git blame" on the active buffer. Press "o"
+                              on any commit to view that commit in a new buffer.
+          <Leader>gd        - Toggle diff view, which will use the gutter to
+                              show changes to the active buffers.
+          <Leader>gp        - Run "git push" in the current repo, and push
+                              all changes to the remote.
+
+    =>  Visual mode mappings
+
+        \\                  - Toggle commenting on the selected lines. This
+                              also works in normal mode on a single line.
+        <Leader><Space>     - Automatically align the selected lines.
+        <Ctrl>l             - Indent the selected lines one indentation
+                              level to the right.
+        <Ctrl>h             - Indent the selected lines one indentation
+                              level to the left.
+
