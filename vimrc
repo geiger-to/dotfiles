@@ -102,7 +102,6 @@ set nocompatible
 
   " And Shift-; is just too darn difficult
   noremap ; :
-  noremap ;; :
 
   " Fast [w]rites and [q]uits
   nnoremap <Leader>w :w!<CR>
