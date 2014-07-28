@@ -65,6 +65,7 @@
         remapped to the spacebar. After a few uses the spacebar feels
         right as rain.
 
+
     =>  General mappings
 
           jj                - Alias for ESC.
@@ -73,6 +74,7 @@
           <Leader>wq        - Write and close the active buffer.
           <Leader>rm        - Remove the active buffer from the filesystem.
           <Leader><Space>   - Toggle search highlighting.
+
 
     =>  Splits
 
@@ -90,6 +92,7 @@
           <Ctrl>j           - Move to the split below.
           <Ctrl>k           - Move to the split above.
           <Ctrl>l           - Move to the split to the right.
+
 
     =>  Navigation
 
