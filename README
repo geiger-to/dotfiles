@@ -30,16 +30,25 @@
 
     =>  Overview
 
-        I'm trying to make this configuration dead simple to use, so
-        here's what you get at a glance.
+        In general, you should expect this configuration to Just Work.
+        For example, you're not going to have to worry about:
 
-          - The beautiful solarized colour scheme.
-          - Auto-detected indentation settings.
-          - Integration with system clipboards.
-          - Easy splits that auto-balance themselves.
-          - Most commands behind the Leader key (spacebar, by default).
-          - TMUX integration.
-          - Autosave.
+          - Specifying indentation settings. They should be automatically
+            detected based on the current file you're editing, as well
+            as standards based on the filetype.
+
+          - Managing splits. They're dead-simple to create (see below) and
+            the auto-balance themselves so you can focus on editing.
+
+          - Managing clipboards. This configuration hooks up nicely to the
+            system clipboard by default.
+
+          - Keeping up-to-date with new filetypes. In general most filetypes
+            should work out of the box.
+
+        Take a look at the mappings that come out of the box, as well as
+        the installed bundles to get a full overview of what's included.
+
 
     =>  Requirements
 
@@ -85,13 +94,20 @@
     =>  Navigation
 
           <Leader>p         - Bring up CtrlP, a fuzzy-file finder.
+                              https://github.com/kien/ctrlp.vim
           <Leader>a         - Search the current project with "Ag".
+                              https://github.com/rking/ag.vim
           <Leader>o         - Bring up a sidebar with a list of tags.
-          <Leader>-         - Bring up the file explorer.
+                              https://github.com/majutsushi/tagbar
+          <Leader>-         - Bring up the netrw file explorer, provided by
+                              https://github.com/tpope/vim-vinegar
           <Leader>fo        - Open the active buffer in Finder.
 
+        Note: To use "<Leader>a" you must have "Ag" installed. Refer to
+        the guides: https://github.com/ggreer/the_silver_searcher#installation
 
-    =>  Git integration (with fugitive.vim).
+
+    =>  Git integration (https://github.com/tpope/vim-fugitive).
 
           <Leader>gs        - Run "git status" in the current repo. You
                               can stage and unstage files in here with "-".
@@ -106,6 +122,16 @@
           <Leader>gp        - Run "git push" in the current repo, and push
                               all changes to the remote.
 
+    =>  Pair manipulation (https://github.com/tpope/vim-surround)
+
+        Refer to the examples on the bundle's github README for a full
+        overview, but as a starting point:
+
+        cs"'                - Change surrounding pairs from " to '.
+        ds{                 - Delete surrounding pairs {}.
+        yi(                 - Yank text inside ().
+
+
     =>  Visual mode mappings
 
         \\                  - Toggle commenting on the selected lines. This
@@ -115,4 +141,5 @@
                               level to the right.
         <Ctrl>h             - Indent the selected lines one indentation
                               level to the left.
+
 
