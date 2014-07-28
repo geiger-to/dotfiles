@@ -227,9 +227,6 @@ set nocompatible
   " Add support for even more languages
   NeoBundle 'sheerun/vim-polyglot'
 
-  " Add support for pegjs files
-  NeoBundle 'alunny/pegjs-vim'
-
   " Add searching with ag
   NeoBundle 'rking/ag.vim'
 
