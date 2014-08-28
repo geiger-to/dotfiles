@@ -67,7 +67,6 @@ set nocompatible
 
   " Allow per-project settings
   set exrc
-  set secure
 
   " Context-dependent cursor in the terminal
   if exists('$TMUX')
