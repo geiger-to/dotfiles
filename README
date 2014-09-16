@@ -16,12 +16,6 @@
 
 
 
-         This is my vim configuration. I like it.
-              Maybe you will as well.
-
-
-
-
     =>  Installation
 
         $ git clone --recursive https://github.com/gigr/vim-config.git
