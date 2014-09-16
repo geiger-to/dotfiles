@@ -21,5 +21,15 @@ tmux:
 	ln -s $(CWD)/tmux.conf ~/.tmux.conf
 	ln -s $(CWD)/tmux ~/.tmux
 
-all:    bash git vim tmux
-.PHONY: bash git vim tmux
+deps:
+	$(info )
+	$(info You'll want to install the following:)
+	$(info   - TMUX 1.9)
+	$(info   - VIM 7.4)
+	$(info   - Git 2.0)
+	$(info   - Ag (the silver searcher))
+	$(info   - reattach-to-user-namespace)
+
+
+all:    bash git vim tmux deps
+.PHONY: bash git vim tmux deps
