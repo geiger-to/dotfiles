@@ -5,7 +5,8 @@ bash:
 	ln -s $(CWD)/bash_profile ~/.bash_profile
 	
 git:
-	rm -f ~/.gitconfig
+	rm -f ~/.gitconfig ~/.gitignore
 	ln -s $(CWD)/gitconfig ~/.gitconfig
+	ln -s $(CWD)/gitignore ~/.gitignore
 
 all: bash git
