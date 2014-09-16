@@ -14,6 +14,12 @@ vim:
 	rm -f ~/.vim
 	ln -s $(CWD)/vimrc ~/.vimrc
 	ln -s $(CWD)/vim ~/.vim
-	
-all: bash git vim
-.PHONY: bash git vim
+
+tmux:
+	rm -f ~/.tmux.conf
+	rm -f ~/.tmux
+	ln -s $(CWD)/tmux.conf ~/.tmux.conf
+	ln -s $(CWD)/tmux ~/.tmux
+
+all:    bash git vim tmux
+.PHONY: bash git vim tmux
