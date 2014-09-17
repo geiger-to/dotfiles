@@ -158,7 +158,6 @@ set nocompatible
   " Disable these mappings which I tend to just
   " fat-finger and end up getting in my way
   map K k
-  map J j
 
   " But [K] is very useful, so keep it around
   nnoremap <Leader>k K
@@ -258,9 +257,6 @@ set nocompatible
 
   " Add support for syntax error detection.
   NeoBundle 'scrooloose/syntastic'
-
-  " Support moving around panes in both TMUX and VIM
-  NeoBundle 'christoomey/vim-tmux-navigator'
 
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
