@@ -121,6 +121,12 @@ set nocompatible
   nnoremap <Leader>v :botright vnew<CR><C-W>l
   nnoremap <Leader>s :belowright new<CR><C-W>j
 
+  " Afford quickly moving around splits
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-l> <C-w>l
+
   " Quickly change indent
   vnoremap <C-l> >gv
   vnoremap <C-h> <gv
