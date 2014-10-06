@@ -25,3 +25,9 @@ export EDITOR='vim -v'
 
 # General aliases
 alias ls="ls -G"
+
+# Keeping all code in /Volumes/Code, this is handy.
+code ()
+{
+  cd "/Volumes/Code/$1"
+}
