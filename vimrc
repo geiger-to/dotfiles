@@ -89,6 +89,9 @@ set nocompatible
   " Treat ES6 as straight up Javascript, yo.
   au BufNewFile,BufRead *.es6 set filetype=javascript
 
+  " Don't wrap on HTML. That shit gets so long it's not funny.
+  au FileType html,htmldjango,htmljinja setlocal textwidth=0 wrapmargin=0
+
 " }}}
 
 " Mappings {{{
