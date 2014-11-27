@@ -267,6 +267,12 @@ set nocompatible
   " Add support for syntax error detection.
   NeoBundle 'scrooloose/syntastic'
 
+  " Use Emmet for rapid HTML writing
+  NeoBundle 'mattn/emmet-vim'
+
+  " Highlight matching HTML tags.
+  NeoBundle 'Valloric/MatchTagAlways'
+
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
 

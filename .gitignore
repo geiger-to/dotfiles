@@ -2,3 +2,4 @@ vim/bundle
 !vim/bundle/neobundle.vim
 tmux/plugins
 !tmux/plugins/tpm
+vim/.netrwhist
