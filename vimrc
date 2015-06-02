@@ -92,6 +92,20 @@ set nocompatible
   " Don't wrap on HTML. That shit gets so long it's not funny.
   au FileType html,htmldjango,htmljinja setlocal textwidth=0 wrapmargin=0
 
+  " Don't replace past buffer
+  function! RestoreRegister()
+      let @" = s:restore_reg
+      if &clipboard == "unnamed"
+          let @* = s:restore_reg
+      endif
+      return ''
+  endfunction
+  function! s:Repl()
+    let s:restore_reg = @"
+    return "p@=RestoreRegister()\<cr>"
+  endfunction
+  vmap <silent> <expr> p <sid>Repl()
+
 " }}}
 
 " Mappings {{{
