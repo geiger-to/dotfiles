@@ -18,8 +18,8 @@
 
     =>  Installation
 
-        $ git clone --recursive https://github.com/gigr/vim-config.git
-        $ cd vim-config && make install
+        $ git clone --recursive https://github.com/gigr/dotfiles.git
+        $ cd dotfiles && make all
 
 
     =>  Overview
