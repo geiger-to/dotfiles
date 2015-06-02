@@ -273,6 +273,9 @@ set nocompatible
   " Highlight matching HTML tags.
   NeoBundle 'Valloric/MatchTagAlways'
 
+  " Visually expand regions
+  NeoBundle 'terryma/vim-expand-region'
+
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
 
