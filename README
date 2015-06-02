@@ -24,33 +24,23 @@
 
     =>  Overview
 
-        In general, you should expect this configuration to Just Work.
-        For example, you're not going to have to worry about:
+        This repo contains config files for a few different programs:
 
-          - Specifying indentation settings. They should be automatically
-            detected based on the current file you're editing, as well
-            as standards based on the filetype.
+          - VIM
+          - TMUX
+          - Bash
+          - Git
 
-          - Managing splits. They're dead-simple to create (see below) and
-            the auto-balance themselves so you can focus on editing.
+        It does not take care of installing the respective programs
+        and for optimal performance it is recommended you install
+        the following:
 
-          - Managing clipboards. This configuration hooks up nicely to the
-            system clipboard by default.
-
-          - Keeping up-to-date with new filetypes. In general most filetypes
-            should work out of the box.
-
-        Take a look at the mappings that come out of the box, as well as
-        the installed bundles to get a full overview of what's included.
-
-
-    =>  Requirements
-
-        There's nothing out of the ordinary here, but this is what I
-        write code on. YMMV on other systems.
-
-          - A terminal that supports 256 colours, like iTerm.
-          - Vim 7.3+, with best results on Vim 7.4.
+          - iTerm
+          - TMUX 1.9
+          - VIM 7.4
+          - Git 2.0
+          - Ag (the silver searcher)
+          - reattach-to-user-namespace
 
 
     =>  Mappings
