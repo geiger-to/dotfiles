@@ -245,6 +245,9 @@ set nocompatible
   " Easily manipulate surrounding pairs
   NeoBundle 'tpope/vim-surround'
 
+  " Enable . for plugin mappings
+  NeoBundle 'tpope/vim-repeat'
+
   " Add support for even more languages
   NeoBundle 'sheerun/vim-polyglot'
 
