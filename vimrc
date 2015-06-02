@@ -258,7 +258,7 @@ set nocompatible
   NeoBundle 'regedarek/ZoomWin'
 
   " Auto-detect indentation settings
-  NeoBundle 'conormcd/matchindent.vim'
+  NeoBundle 'tpope/vim-sleuth'
 
   " Add a beautiful and useful status bar
   NeoBundle 'bling/vim-airline'
