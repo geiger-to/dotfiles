@@ -31,3 +31,6 @@ code ()
 {
   cd "/Volumes/Code/$1"
 }
+
+# Add support for Postgres.app
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
