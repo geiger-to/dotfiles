@@ -46,22 +46,22 @@
        run into problems.
 
 
-    :: TMUX
+    ::  TMUX
 
-       Along with the tpm-plugins system and an improved status bar, there
-       is a small amount of TMUX configuration included—just enough to
-       ensure things work sensibly.
+        Along with the tpm-plugins system and an improved status bar, there
+        is a small amount of TMUX configuration included—just enough to
+        ensure things work sensibly.
 
-         <C-Space>           - Prefix key combination
-         <Prefix> c          - Create a new tab
-         <Prefix> v          - Create a new vertical split
-         <Prefix> s          - Create a new horizontal split
-         <Prefix> h          - Move to the pane to the left
-         <Prefix> j          - Move to the pane below
-         <Prefix> k          - Move to the pane above
-         <Prefix> l          - Move to the pane to the right
+          <C-Space>           - Prefix key combination
+          <Prefix> c          - Create a new tab
+          <Prefix> v          - Create a new vertical split
+          <Prefix> s          - Create a new horizontal split
+          <Prefix> h          - Move to the pane to the left
+          <Prefix> j          - Move to the pane below
+          <Prefix> k          - Move to the pane above
+          <Prefix> l          - Move to the pane to the right
 
-       All other mappings are the defaults that ship with TMUX.
+        All other mappings are the defaults that ship with TMUX.
 
 
     ::  VIM
