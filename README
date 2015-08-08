@@ -11,46 +11,67 @@
 :::`.  ,'::::|'` . |  ‖::::::::|  |:::::::::::::::::::::::::::|  |::::::::::::::
 =~=~=||=~=~=~|`,'- |  ‖=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.::::::::
    ,-||-.    |`-...|  ‖                                                 ‖:::::::
-  (  ''  )   |        |                                                 ‖:::::::
-   `----'     `-.__.-'                                                  ‖:::::::
+  (  ''  )   |        |                                                 ‖::::::
+   `----'     `-.__.-'                                                  ‖:::::
+                                                                        ‖::::
+                                                                        ‖:::
+    ::  Installation                                                    ‖::
+                                                                        ‖:
+        $ git clone --recursive https://github.com/gigr/dotfiles.git    ‖
+        $ cd dotfiles && make all                                       |
 
 
+    ::  Overview
 
-    =>  Installation
-
-        $ git clone --recursive https://github.com/gigr/dotfiles.git
-        $ cd dotfiles && make all
-
-
-    =>  Overview
-
-        This repo contains dotfiles for a few different programs:
+        This repository installs configuration files for a few
+        different pieces of software:
 
           - VIM
           - TMUX
           - Bash
           - Git
 
-        It does not take care of installing the respective programs
-        and for optimal performance it is recommended you install
-        the following:
+        It does not take care of installing the respective programs,
+        so you must do that yourself. For best performance, I recommend
+        you install the following:
 
           - iTerm
-          - TMUX 1.9
-          - VIM 7.4
-          - Git 2.0
+          - TMUX 1.9+
+          - VIM 7.4+
+          - Git 2.0+
           - Ag (the silver searcher)
           - reattach-to-user-namespace
 
+       In general, things should Just Work™, so open an issue if you
+       run into problems.
 
-    =>  Mappings
+
+    :: TMUX
+
+       Along with the tpm-plugins system and an improved status bar, there
+       is a small amount of TMUX configuration included—just enough to
+       ensure things work sensibly.
+
+         <C-Space>           - Prefix key combination
+         <Prefix> c          - Create a new tab
+         <Prefix> v          - Create a new vertical split
+         <Prefix> s          - Create a new horizontal split
+         <Prefix> h          - Move to the pane to the left
+         <Prefix> j          - Move to the pane below
+         <Prefix> k          - Move to the pane above
+         <Prefix> l          - Move to the pane to the right
+
+       All other mappings are the defaults that ship with TMUX.
+
+
+    ::  VIM
 
         Most mappings are hidden behind the leader key, which has been
         remapped to the spacebar. After a few uses the spacebar feels
         right as rain.
 
 
-    =>  General mappings
+    ::  General mappings
 
           jj                - Alias for ESC.
           <Leader>w         - Write the active buffer.
@@ -60,7 +81,7 @@
           <Leader><Space>   - Toggle search highlighting.
 
 
-    =>  Splits
+    ::  Splits
 
         Splits are automatically balanced whenever a new one is created,
         so you always have a decent view of all active files and there's
@@ -78,7 +99,7 @@
           <Ctrl>l           - Move to the split to the right.
 
 
-    =>  Navigation
+    ::  Navigation
 
           <Leader>p         - Bring up CtrlP, a fuzzy-file finder.
                               https://github.com/kien/ctrlp.vim
@@ -94,7 +115,7 @@
         the guides: https://github.com/ggreer/the_silver_searcher#installation
 
 
-    =>  Git integration (https://github.com/tpope/vim-fugitive).
+    ::  Git integration (https://github.com/tpope/vim-fugitive).
 
           <Leader>gs        - Run "git status" in the current repo. You
                               can stage and unstage files in here with "-".
@@ -109,7 +130,7 @@
           <Leader>gp        - Run "git push" in the current repo, and push
                               all changes to the remote.
 
-    =>  Pair manipulation (https://github.com/tpope/vim-surround)
+    ::  Pair manipulation (https://github.com/tpope/vim-surround)
 
         Refer to the examples on the bundle's github README for a full
         overview, but as a starting point:
@@ -119,7 +140,7 @@
         yi(                 - Yank text inside ().
 
 
-    =>  Visual mode mappings
+    ::  Visual mode mappings
 
         \\                  - Toggle commenting on the selected lines. This
                               also works in normal mode on a single line.
@@ -128,5 +149,4 @@
                               level to the right.
         <Ctrl>h             - Indent the selected lines one indentation
                               level to the left.
-
 
