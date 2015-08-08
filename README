@@ -42,8 +42,8 @@
           - Ag (the silver searcher)
           - reattach-to-user-namespace
 
-       In general, things should Just Work™, so open an issue if you
-       run into problems.
+        In general, things should Just Work™, so open an issue if you
+        run into problems.
 
 
     ::  TMUX
@@ -135,18 +135,18 @@
         Refer to the examples on the bundle's github README for a full
         overview, but as a starting point:
 
-        cs"'                - Change surrounding pairs from " to '.
-        ds{                 - Delete surrounding pairs {}.
-        yi(                 - Yank text inside ().
+          cs"'              - Change surrounding pairs from " to '.
+          ds{               - Delete surrounding pairs {}.
+          yi(               - Yank text inside ().
 
 
     ::  Visual mode mappings
 
-        \\                  - Toggle commenting on the selected lines. This
-                              also works in normal mode on a single line.
-        <Leader><Space>     - Automatically align the selected lines.
-        <Ctrl>l             - Indent the selected lines one indentation
-                              level to the right.
-        <Ctrl>h             - Indent the selected lines one indentation
-                              level to the left.
+          \\                 - Toggle commenting on the selected lines. This
+                               also works in normal mode on a single line.
+          <Leader><Space>    - Automatically align the selected lines.
+          <Ctrl>l            - Indent the selected lines one indentation
+                               level to the right.
+          <Ctrl>h            - Indent the selected lines one indentation
+                               level to the left.
 
