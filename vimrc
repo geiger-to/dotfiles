@@ -166,6 +166,12 @@ set nocompatible
   " Fuzzy filename searching with ctrl-[p]
   let g:ctrlp_map = '<Leader>p'
 
+  " Add a few oft-used ignores to CtrlP. They end up
+  " just bogging it down for no real reason.
+  let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules\|bower_components',
+  \ }
+
   " Grep with [a]g, aka the silver searcher
   nnoremap <Leader>a :Ag ''<Left>
 
