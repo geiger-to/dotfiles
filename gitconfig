@@ -2,7 +2,7 @@
 	ui = true
 [alias]
 	co = checkout
-	pr = pull --rebase
+	rb = pull --rebase
 	aa = add -A
 	amend = commit --amend
 	issue = checkout -t origin/master -b
