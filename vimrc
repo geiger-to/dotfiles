@@ -299,6 +299,9 @@ set nocompatible
   " Visually expand regions
   NeoBundle 'terryma/vim-expand-region'
 
+  " Auto-completion
+  NeoBundle 'Valloric/YouCompleteMe'
+
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
 
