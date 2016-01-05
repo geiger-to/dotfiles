@@ -240,7 +240,7 @@ set nocompatible
   NeoBundle 'tpope/vim-sensible'
 
   " The ever-famous, for fuzzy file searching
-  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'ctrlpvim/ctrlp.vim'
 
   " Indicate the diff of the file in the gutter
   NeoBundle 'airblade/vim-gitgutter'
