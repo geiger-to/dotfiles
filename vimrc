@@ -91,7 +91,7 @@ set nocompatible
   au BufNewFile,BufRead *.es6 set filetype=javascript
 
   " Don't wrap on HTML. That shit gets so long it's not funny.
-  au FileType html,htmldjango,htmljinja,slim setlocal textwidth=0 wrapmargin=0
+  au FileType html,htmldjango,htmljinja,slim,html.handlebars setlocal textwidth=0 wrapmargin=0
 
   " Don't replace past buffer
   function! RestoreRegister()
@@ -302,6 +302,9 @@ set nocompatible
 
   " Auto-completion
   NeoBundle 'Valloric/YouCompleteMe'
+
+  " Handlbars syntax support
+  NeoBundle 'mustache/vim-mustache-handlebars'
 
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
