@@ -1,13 +1,6 @@
-" ex: set foldmethod=marker
 set nocompatible
 
 " Behaviour {{{
-
-  " She's a beaut!
-  color solarized
-
-  " True programmers use dark backgrounds
-  set background=dark
 
   " Show line numbers
   set number
@@ -19,7 +12,7 @@ set nocompatible
   set cursorline
 
   " Underline spelling mistakes
-  set spell
+  set nospell
 
   " Ignore backup files as these settings tend to become
   " nuisances over time, rather than help.
@@ -305,6 +298,16 @@ set nocompatible
 
   " Handlbars syntax support
   NeoBundle 'mustache/vim-mustache-handlebars'
+
+  " Try out Sierra occasionally
+  NeoBundle 'AlessandroYorba/Sierra'
+
+  " Solarized is nice too.
+  NeoBundle 'altercation/vim-colors-solarized'
+
+  " She's a beaut!
+  colorscheme solarized
+  set background=dark
 
   " Let NeoBundle ensure everything is properly installed
   NeoBundleCheck
