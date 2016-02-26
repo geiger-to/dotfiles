@@ -159,6 +159,7 @@ set nocompatible
 
   " Fuzzy filename searching with ctrl-[p]
   let g:ctrlp_map = '<Leader>p'
+  let g:ctrlp_cmd = 'CtrlPMRU'
 
   " Add a few oft-used ignores to CtrlP. They end up
   " just bogging it down for no real reason.
