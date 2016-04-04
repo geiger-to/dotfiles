@@ -149,8 +149,8 @@ set nocompatible
   nnoremap <Leader>gs :Gstatus<CR>
   nnoremap <Leader>gc :Gcommit<CR>
   nnoremap <Leader>gb :Gblame<CR>
-  nnoremap <Leader>gp :Git push<CR>
-  nnoremap <Leader>ga :Git commit --amend<CR>
+  nnoremap <Leader>gp :Gpush<CR>
+  nnoremap <Leader>ga :Gcommit --amend<CR>
 
   " Git [d]iff in the gutter. There's some sort of bug with the background
   " colour that's fixed with running it this way. Adding the first
