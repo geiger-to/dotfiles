@@ -44,3 +44,6 @@ export CLICOLOR=1
 
 # Set colors to match iTerm2 Terminal Colors
 export TERM=xterm-256color
+
+# Support dev
+if [[ -f /opt/dev/dev.sh ]]; then source /opt/dev/dev.sh; fi
