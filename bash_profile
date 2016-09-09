@@ -11,6 +11,9 @@ else
   }
 fi
 
+# VIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+set -o vi
+
 # Magic PS1 does magical things when in a git repo
 PS1='\[\033[32m\]\W\[\033[00m\]:\[\033[31m\]$(__git_ps1)\[\033[00m\] \$ '
 
@@ -47,3 +50,6 @@ export TERM=xterm-256color
 
 # Support dev
 if [[ -f /opt/dev/dev.sh ]]; then source /opt/dev/dev.sh; fi
+
+# Bring in chbrochure
+if [[ -f ~/.chbrochure ]]; then source ~/.chbrochure; fi
