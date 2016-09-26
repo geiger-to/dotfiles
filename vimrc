@@ -291,9 +291,6 @@ set nocompatible
   " Visually expand regions
   call dein#add('terryma/vim-expand-region')
 
-  " Auto-completion
-  call dein#add('Valloric/YouCompleteMe')
-
   " Handlbars syntax support
   call dein#add('mustache/vim-mustache-handlebars')
 

@@ -22,9 +22,6 @@ tmux:
 	ln -s $(CWD)/tmux.conf ~/.tmux.conf
 	ln -s $(CWD)/tmux ~/.tmux
 
-ycm: vim
-	~/.vim/repos/github.com/Valloric/YouCompleteMe/install.py
-
 deps:
 	$(info )
 	$(info You'll want to install the following:)
@@ -35,5 +32,5 @@ deps:
 	$(info   - reattach-to-user-namespace)
 
 
-all:    bash git vim ycm tmux deps
-.PHONY: bash git vim ycm tmux deps
+all:    bash git vim tmux deps
+.PHONY: bash git vim tmux deps
