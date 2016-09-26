@@ -14,6 +14,7 @@ vim:
 	rm -f ~/.vim
 	ln -s $(CWD)/vimrc ~/.vimrc
 	ln -s $(CWD)/vim ~/.vim
+	vim +"call dein#install()" +qall
 
 tmux:
 	rm -f ~/.tmux.conf
@@ -22,7 +23,7 @@ tmux:
 	ln -s $(CWD)/tmux ~/.tmux
 
 ycm: vim
-	~/.vim/bundle/YouCompleteMe/install.py
+	~/.vim/repos/github.com/Valloric/YouCompleteMe/install.py
 
 deps:
 	$(info )

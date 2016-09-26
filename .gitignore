@@ -1,5 +1,8 @@
-vim/bundle
-!vim/bundle/neobundle.vim
+vim/repos
+vim/.dein
+vim/merged
+vim/rollbacks
+!vim/repos/github.com/Shougo/dein.vim
 tmux/plugins
 !tmux/plugins/tpm
 vim/.netrwhist

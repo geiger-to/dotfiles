@@ -219,97 +219,97 @@ set nocompatible
 
 " Bundles {{{
 
-  " Initialize NeoBundle
-  if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-  endif
+  " Initialize dein
+  set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  call dein#begin(expand('~/.vim/'))
 
-  " Let NeoBundle manage itself
-  NeoBundleFetch 'Shougo/neobundle.vim'
+  " Let call dein#add(manage itself
+  call dein#add('Shougo/dein.vim')
 
   " Use a bunch of sensible defaults for vim,
   " approved the by the reverend Tim Pope
-  NeoBundle 'tpope/vim-sensible'
+  call dein#add('tpope/vim-sensible')
 
   " The ever-famous, for fuzzy file searching
-  NeoBundle 'ctrlpvim/ctrlp.vim'
+  call dein#add('ctrlpvim/ctrlp.vim')
 
   " Indicate the diff of the file in the gutter
-  NeoBundle 'airblade/vim-gitgutter'
+  call dein#add('airblade/vim-gitgutter')
 
   " Add amazing git integration
-  NeoBundle 'tpope/vim-fugitive'
+  call dein#add('tpope/vim-fugitive')
 
   " Easily manipulate surrounding pairs
-  NeoBundle 'tpope/vim-surround'
+  call dein#add('tpope/vim-surround')
 
   " Enable . for plugin mappings
-  NeoBundle 'tpope/vim-repeat'
+  call dein#add('tpope/vim-repeat')
 
   " Add support for even more languages
-  NeoBundle 'sheerun/vim-polyglot'
+  call dein#add('sheerun/vim-polyglot')
 
   " Add searching with ag
-  NeoBundle 'rking/ag.vim'
+  call dein#add('rking/ag.vim')
 
   " Quickly maximize the current split
-  NeoBundle 'regedarek/ZoomWin'
+  call dein#add('regedarek/ZoomWin')
 
   " Auto-detect indentation settings
-  NeoBundle 'tpope/vim-sleuth'
+  call dein#add('tpope/vim-sleuth')
 
   " Add a beautiful and useful status bar
-  NeoBundle 'bling/vim-airline'
+  call dein#add('bling/vim-airline')
 
   " Add .gitignore contents to wildignore
-  NeoBundle 'vim-scripts/gitignore'
+  call dein#add('vim-scripts/gitignore')
 
   " Quickly comment lines
-  NeoBundle 'scrooloose/nerdcommenter'
+  call dein#add('scrooloose/nerdcommenter')
 
   " Outline tags in a pane
-  NeoBundle 'majutsushi/tagbar'
+  call dein#add('majutsushi/tagbar')
 
   " Add auto-closing of pairs for ruby and vim
-  NeoBundle 'tpope/vim-endwise'
+  call dein#add('tpope/vim-endwise')
 
   " Show netrw in the current split.
-  NeoBundle 'tpope/vim-vinegar'
+  call dein#add('tpope/vim-vinegar')
 
   " Add support for easy alignment
-  NeoBundle 'junegunn/vim-easy-align'
+  call dein#add('junegunn/vim-easy-align')
 
   " Add support for syntax error detection.
-  NeoBundle 'scrooloose/syntastic'
+  call dein#add('scrooloose/syntastic')
 
   " Use Emmet for rapid HTML writing
-  NeoBundle 'mattn/emmet-vim'
+  call dein#add('mattn/emmet-vim')
 
   " Highlight matching HTML tags.
-  NeoBundle 'Valloric/MatchTagAlways'
+  call dein#add('Valloric/MatchTagAlways')
 
   " Visually expand regions
-  NeoBundle 'terryma/vim-expand-region'
+  call dein#add('terryma/vim-expand-region')
 
   " Auto-completion
-  NeoBundle 'Valloric/YouCompleteMe'
+  call dein#add('Valloric/YouCompleteMe')
 
   " Handlbars syntax support
-  NeoBundle 'mustache/vim-mustache-handlebars'
+  call dein#add('mustache/vim-mustache-handlebars')
 
   " Try out Sierra occasionally
-  NeoBundle 'AlessandroYorba/Sierra'
+  call dein#add('AlessandroYorba/Sierra')
 
   " Solarized is nice too.
-  NeoBundle 'altercation/vim-colors-solarized'
+  call dein#add('altercation/vim-colors-solarized')
+
+  " Install un-installed plugins
+  if dein#check_install()
+    call dein#install()
+  endif
 
   " She's a beaut!
   colorscheme solarized
   set background=dark
-
-  " Let NeoBundle ensure everything is properly installed
-  NeoBundleCheck
 
 " }}}
