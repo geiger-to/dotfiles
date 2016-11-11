@@ -124,6 +124,10 @@ set nocompatible
   " [O]pen the containing folder of a file in Finder
   nnoremap <Leader>fo :silent !open -Rg %<CR>:redraw!<CR>
 
+  " Copy the filename or filepath to the clipboard
+  nnoremap <Leader>fn :let @*=expand("%")<CR>
+  nnoremap <Leader>fp :let @*=expand("%:p")<CR>
+
   " Toggle search highlighting
   nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 
