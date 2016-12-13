@@ -22,6 +22,10 @@ tmux:
 	ln -s $(CWD)/tmux.conf ~/.tmux.conf
 	ln -s $(CWD)/tmux ~/.tmux
 
+hyper:
+	rm -f ~/.hyper.js
+	ln -s $(CWD)/hyper.js ~/.hyper.js
+
 deps:
 	$(info )
 	$(info You'll want to install the following:)
