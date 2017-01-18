@@ -284,7 +284,7 @@ set nocompatible
   call dein#add('junegunn/vim-easy-align')
 
   " Add support for syntax error detection.
-  call dein#add('scrooloose/syntastic')
+  call dein#add('vim-syntastic/syntastic')
 
   " Use Emmet for rapid HTML writing
   call dein#add('mattn/emmet-vim')
