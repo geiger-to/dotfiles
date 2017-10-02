@@ -286,22 +286,13 @@ set nocompatible
   " Add support for syntax error detection.
   call dein#add('vim-syntastic/syntastic')
 
-  " Use Emmet for rapid HTML writing
-  call dein#add('mattn/emmet-vim')
-
   " Highlight matching HTML tags.
   call dein#add('Valloric/MatchTagAlways')
 
   " Visually expand regions
   call dein#add('terryma/vim-expand-region')
 
-  " Handlbars syntax support
-  call dein#add('mustache/vim-mustache-handlebars')
-
-  " Try out Sierra occasionally
-  call dein#add('AlessandroYorba/Sierra')
-
-  " Solarized is nice too.
+  " Solarized is nice.
   call dein#add('altercation/vim-colors-solarized')
 
   " Install un-installed plugins
