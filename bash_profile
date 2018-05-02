@@ -51,5 +51,9 @@ export TERM=xterm-256color
 # Support dev
 if [[ -f /opt/dev/dev.sh ]]; then source /opt/dev/dev.sh; fi
 
+# Support GO
+export GOPATH=$HOME
+export PATH=$GOPATH/bin:$PATH
+
 # Bring in chbrochure
 if [[ -f ~/.chbrochure ]]; then source ~/.chbrochure; fi
