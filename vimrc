@@ -297,7 +297,7 @@ set nocompatible
   call dein#add('terryma/vim-expand-region')
 
   " Solarized is nice.
-  call dein#add('altercation/vim-colors-solarized')
+  call dein#add('flazz/vim-colorschemes')
 
   " Install un-installed plugins
   if dein#check_install()
