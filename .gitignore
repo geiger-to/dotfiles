@@ -2,6 +2,7 @@ vim/repos
 vim/.dein
 vim/merged
 vim/rollbacks
+vim/temp
 !vim/repos/github.com/Shougo/dein.vim
 tmux/plugins
 !tmux/plugins/tpm
