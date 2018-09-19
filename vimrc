@@ -8,9 +8,6 @@ set nocompatible
   " Show common line limits
   set colorcolumn=80,120
 
-  " Highlight the line that the cursor is on
-  set cursorline
-
   " Underline spelling mistakes
   set nospell
 
