@@ -171,6 +171,9 @@ set nocompatible
   " Ctrl-P with ag
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
+  " Use a common ctrlp cache
+  let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+
   " Grep with [a]g, aka the silver searcher
   nnoremap <Leader>a :Ag ''<Left>
 
