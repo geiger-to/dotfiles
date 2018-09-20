@@ -83,6 +83,9 @@ set nocompatible
   " Don't wrap on HTML. That shit gets so long it's not funny.
   au FileType html,htmldjango,htmljinja,slim,html.handlebars setlocal textwidth=0 wrapmargin=0
 
+  " Speed up the slowness when dealing with synax highlighting ruby
+  au FileType ruby setlocal re=1 foldmethod=manual
+
   " Don't replace past buffer
   function! RestoreRegister()
       let @" = s:restore_reg
