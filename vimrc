@@ -178,7 +178,12 @@ set nocompatible
   let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 
   " Grep with [a]g, aka the silver searcher
-  nnoremap <Leader>a :Ag ''<Left>
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep --smart-case'
+  endif
+
+  " Quickly bring up "ag" for search
+  nnoremap <Leader>a :Ack<Space>
 
   " Quickly [m]aximize a split
   nnoremap <Leader>m :ZoomWin<CR>
@@ -261,7 +266,7 @@ set nocompatible
   call dein#add('sheerun/vim-polyglot')
 
   " Add searching with ag
-  call dein#add('rking/ag.vim')
+  call dein#add('mileszs/ack.vim')
 
   " Quickly maximize the current split
   call dein#add('regedarek/ZoomWin')
