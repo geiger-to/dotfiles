@@ -21,7 +21,6 @@
         $ git clone --recursive https://github.com/gigr/dotfiles.git
         $ cd dotfiles && make all
 
-
     ::  Overview
 
         This repository installs configuration files for a few
@@ -32,25 +31,31 @@
           - Bash
           - Git
 
-        It does not take care of installing the respective programs,
-        so you must do that yourself. For best performance, I recommend
-        you install the following:
+        -------------------------------------------------------------
 
-          - TMUX 1.9+
-          - VIM 7.4+
-          - Git 2.0+
-          - Ag (the silver searcher)
-          - reattach-to-user-namespace
+          If you have homebrew, you can install this software with:
 
-        In general, things should Just Work™, so open an issue if you
-        run into problems.
+           $ make brew
+
+         Similarly, if you have apt, install the above with:
+
+           $ make apt
+
+        -------------------------------------------------------------
+
+        In general, things should Just Work™, so open an issue
+        if you run into problems.
+
+
+
+                                   ~
 
 
     ::  TMUX
 
-        Along with the tpm-plugins system and an improved status bar, there
-        is a small amount of TMUX configuration included—just enough to
-        ensure things work sensibly.
+        Along with the tpm-plugins system and an improved status bar,
+        there is a small amount of TMUX configuration included—just
+        enough to ensure things work sensibly.
 
           <C-Space>           - Prefix key combination
           <Prefix> c          - Create a new tab

@@ -11,7 +11,7 @@ git:
 
 vim:
 	rm -f ~/.vimrc
-	rm -f ~/.vim
+	rm -rf ~/.vim
 	ln -s $(CWD)/vimrc ~/.vimrc
 	ln -s $(CWD)/vim ~/.vim
 	vim +"call dein#install()" +qall
@@ -26,8 +26,14 @@ hyper:
 	rm -f ~/.hyper.js
 	ln -s $(CWD)/hyper.js ~/.hyper.js
 
-deps:
+brew:
 	brew bundle
 
-all:    bash git vim tmux deps
-.PHONY: bash git vim tmux deps
+apt:
+	apt install git vim tmux silversearcher-ag
+
+snap:
+	snap install firefox chromium
+
+all:    bash git vim tmux
+.PHONY: bash git vim tmux
