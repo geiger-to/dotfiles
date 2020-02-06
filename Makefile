@@ -8,6 +8,8 @@ git:
 	rm -f ~/.gitconfig ~/.gitignore
 	ln -s $(CWD)/gitconfig ~/.gitconfig
 	ln -s $(CWD)/gitignore ~/.gitignore
+	rm -f ~/.git-completion.bash
+	ln -s $(CWD)/git-completion.bash ~/.git-completion.bash
 
 vim:
 	rm -f ~/.vimrc

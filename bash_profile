@@ -1,5 +1,5 @@
-if [ -x "$(command -v brew)" ] && [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
-  . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
 fi
 
 if [ -f "/usr/local/git/contrib/completion/git-prompt.sh" ]; then
