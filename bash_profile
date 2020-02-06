@@ -38,10 +38,6 @@ code ()
 # Add support for Postgres.app
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
-# Add support for rbenv
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
 # Set CLICOLOR if you want Ansi Colors in iTerm2 
 export CLICOLOR=1
 
