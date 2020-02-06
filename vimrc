@@ -295,6 +295,9 @@ set nocompatible
   " Add support for easy alignment
   call dein#add('junegunn/vim-easy-align')
 
+  " Add support for easy alignment
+  call dein#add('AndrewRadev/splitjoin.vim')
+
   " Add support for syntax error detection.
   call dein#add('vim-syntastic/syntastic')
 
