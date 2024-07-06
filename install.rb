@@ -18,7 +18,7 @@ module CLI
       exit 1
     end
 
-    system "ansible-playbook ansible/#{cmd}.yml"
+    system "ansible-playbook ansible/local.yml"
   end
 end
 

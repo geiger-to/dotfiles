@@ -42,6 +42,7 @@
     src: "{{ root_dir }}/vim"
     dest: ~/.vim
     state: link
+    force: yes
 - name: link neovim configuration
   ansible.builtin.file:
     src: "{{ root_dir }}/nvim"
