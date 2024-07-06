@@ -1,0 +1,15 @@
+---
+- name: localhost
+  hosts: localhost
+  connection: local
+  vars_prompt:
+    - name: git_name
+      prompt: "What is your name?"
+      private: false
+    - name: git_email
+      prompt: "What is your email?"
+      private: false
+  vars:
+    root_dir: "{{ playbook_dir | dirname }}"
+  roles:
+    - name: roles/common

@@ -1,0 +1,49 @@
+---
+- name: link gitignore
+  when: git_name and git_email
+  ansible.builtin.file:
+    src: "{{ root_dir }}/gitignore"
+    dest: ~/.gitignore
+    state: link
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: "{{ root_dir }}/gitconfig"
+    dest: ~/.gitconfig 
+  when: git_name and git_email
+- name: setup git name
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_name }}"
+  when: git_name
+- name: setup git email
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ git_email }}"
+  when: git_email
+- name: link tmux.conf
+  ansible.builtin.file:
+    src: "{{ root_dir }}/tmux.conf"
+    dest: ~/.tmux.conf
+    state: link
+- name: link tmux plugins
+  ansible.builtin.file:
+    src: "{{ root_dir }}/tmux"
+    dest: ~/.tmux
+    state: link
+- name: link vimrc
+  ansible.builtin.file:
+    src: "{{ root_dir }}/vimrc"
+    dest: ~/.vimrc
+    state: link
+- name: link vim plugins
+  ansible.builtin.file:
+    src: "{{ root_dir }}/vim"
+    dest: ~/.vim
+    state: link
+- name: link neovim configuration
+  ansible.builtin.file:
+    src: "{{ root_dir }}/nvim"
+    dest: ~/.config/nvim
+    state: link

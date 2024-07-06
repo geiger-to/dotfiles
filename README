@@ -1,157 +1,44 @@
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::[__]::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-::::::::::::::::|  ‖::::::::::::;~=============================~;:::::::::::::::
-::::::::::::::::|  ‖:::::::::::|                                 |::::::::::::::
-::::::::::::::::|  ‖:::::::::::|                                 ‖::::::::::::::
-:::,~==~.::::::/`-. \::::::::::|            ~=======~            ‖::::::::::::::
-::(      )::::/-._|  \:::::::::|                                 ‖::::::::::::::
-::|`----'‖:::|        |::::::::|                                 ‖::::::::::::::
-::\      /:::|`-...   ‖::::::::|  .___________________________.  ‖::::::::::::::
-:::`.  ,'::::|'` . |  ‖::::::::|  |:::::::::::::::::::::::::::|  |::::::::::::::
-.~=~=||=~=~=~|`,'- |  ‖=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
-   ,-||-.    |`-...|  ‖
-  (  ''  )   |        |
-   `----'     `-.__.-'
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::.
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::: __________________________  ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::,..----.-..-=/".'                        '.::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::/               | |    ___________________   |::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::;                | |   :__________________/:  |::::::::::::::::;~=============================~;:::::::::::::::
+::::|                | |   |                 '.|  |:::::::::::::::|                                 |::::::::::::::
+::::|                | |   |  > geiger-to/    ||  |:::::::::::::::|                                 ‖::::::::::::::
+::::|                | |   |    dotfiles      ||  |:::::::::::::::|            ~=======~            ‖::::::::::::::
+::::|     |  |       | |   |                  ||  |:::::::::::::::|                                 ‖::::::::::::::
+::::|                | |   |                  ||  |:::::::::::::::|                                 ‖::::::::::::::
+::::|      | |       | |   |                  ||  |:::::::::::::::|  .___________________________.  ‖::::::::::::::
+::::|                | |   |======------====="\|  |:::::::::::::::|  |:::::::::::::::::::::::::::|  |::::::::::::::
+~=~=|                | |   |_______......-----"   |.~=~=~~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~.
+    |                | |_____.....----|#######|---|
+    `. =.--.         | |   ,                      |
+        .. ......==+\|_`    ____......------""","
+
 
 
 
     ::  Installation
 
         $ git clone --recursive https://github.com/geiger-to/dotfiles.git
-        $ cd dotfiles && make all
+        $ cd dotfiles && ./install.rb
 
     ::  Overview
 
-        This repository installs configuration files for a few
-        different pieces of software:
+        This repository installs configuration files for software
+        that I use on a regular basis:
 
           - vim & neovim
           - tmux
           - Zsh
           - git
+          - etc.
 
-        -------------------------------------------------------------
-
-          If you have homebrew, you can install this software with:
-
-           $ make brew
-
-         Similarly, if you have apt, install the above with:
-
-           $ make apt
-
-        -------------------------------------------------------------
-
-        In general, things should Just Work™, so open an issue
-        if you run into problems.
-
+        These are my dotfiles, meaning they're primarily used on hardware
+        that I own and run—typically debian-based Linux and macos. Things
+        should Just Work™, so open an issue if you run into problems.
 
 
                                    ~
-
-
-    ::  TMUX
-
-        Along with the tpm-plugins system and an improved status bar,
-        there is a small amount of TMUX configuration included—just
-        enough to ensure things work sensibly.
-
-          <C-Space>           - Prefix key combination
-          <Prefix> c          - Create a new tab
-          <Prefix> v          - Create a new vertical split
-          <Prefix> s          - Create a new horizontal split
-          <Prefix> h          - Move to the pane to the left
-          <Prefix> j          - Move to the pane below
-          <Prefix> k          - Move to the pane above
-          <Prefix> l          - Move to the pane to the right
-
-        All other mappings are the defaults that ship with TMUX.
-
-
-    ::  VIM
-
-        Most mappings are hidden behind the leader key, which has been
-        remapped to the spacebar. After a few uses the spacebar feels
-        right as rain.
-
-
-    ::  General mappings
-
-          jj                - Alias for ESC.
-          <Leader>w         - Write the active buffer.
-          <Leader>q         - Close the active buffer.
-          <Leader>wq        - Write and close the active buffer.
-          <Leader>rm        - Remove the active buffer from the filesystem.
-          <Leader><Space>   - Toggle search highlighting.
-
-
-    ::  Splits
-
-        Splits are automatically balanced whenever a new one is created,
-        so you always have a decent view of all active files and there's
-        no need to manually resize them.
-
-          <Leader>v         - Create a new vertical split to the right.
-                              of the active buffer. Auto-balance splits.
-          <Leader>s         - Create a new horizontal split below the
-                              active buffer. Auto-balance splits.
-          <Leader>m         - Maximize the active buffer and hide all other
-                              splits. Run this again to bring back the splits.
-          <Ctrl>h           - Move to the split to the left.
-          <Ctrl>j           - Move to the split below.
-          <Ctrl>k           - Move to the split above.
-          <Ctrl>l           - Move to the split to the right.
-
-
-    ::  Navigation
-
-          <Leader>p         - Bring up CtrlP, a fuzzy-file finder.
-                              https://github.com/kien/ctrlp.vim
-          <Leader>a         - Search the current project with "Ag".
-                              https://github.com/rking/ag.vim
-          <Leader>o         - Bring up a sidebar with a list of tags.
-                              https://github.com/majutsushi/tagbar
-          <Leader>-         - Bring up the netrw file explorer, provided by
-                              https://github.com/tpope/vim-vinegar
-          <Leader>fo        - Open the active buffer in Finder.
-
-        Note: To use "<Leader>a" you must have "Ag" installed. Refer to
-        the guides: https://github.com/ggreer/the_silver_searcher#installation
-
-
-    ::  Git integration (https://github.com/tpope/vim-fugitive).
-
-          <Leader>gs        - Run "git status" in the current repo. You
-                              can stage and unstage files in here with "-".
-          <Leader>gc        - Run "git commit" in the current repo. You
-                              can write a commit message, then write and quit.
-          <Leader>ga        - Run "git commit --amend" which will allow you
-                              to modify the previous commits message and files.
-          <Leader>gb        - Run "git blame" on the active buffer. Press "o"
-                              on any commit to view that commit in a new buffer.
-          <Leader>gd        - Toggle diff view, which will use the gutter to
-                              show changes to the active buffers.
-          <Leader>gp        - Run "git push" in the current repo, and push
-                              all changes to the remote.
-
-    ::  Pair manipulation (https://github.com/tpope/vim-surround)
-
-        Refer to the examples on the bundle's github README for a full
-        overview, but as a starting point:
-
-          cs"'              - Change surrounding pairs from " to '.
-          ds{               - Delete surrounding pairs {}.
-          yi(               - Yank text inside ().
-
-
-    ::  Visual mode mappings
-
-          \\                 - Toggle commenting on the selected lines. This
-                               also works in normal mode on a single line.
-          <Leader><Space>    - Automatically align the selected lines.
-          <Ctrl>l            - Indent the selected lines one indentation
-                               level to the right.
-          <Ctrl>h            - Indent the selected lines one indentation
-                               level to the left.
 
