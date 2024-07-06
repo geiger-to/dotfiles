@@ -10,7 +10,13 @@ vim:
 	rm -rf ~/.vim
 	ln -s $(CWD)/vimrc ~/.vimrc
 	ln -s $(CWD)/vim ~/.vim
-	vim +"call dein#install()" +qall
+
+nvim:
+	rm -rf ~/.config/nvim
+	rm -rf ~/.local/share/nvim
+	rm -rf ~/.local/state/nvim
+	rm -rf ~/.cache/nvim
+	ln -s $(CWD)/nvim ~/.config/nvim
 
 tmux:
 	rm -f ~/.tmux.conf
@@ -27,5 +33,5 @@ apt:
 snap:
 	snap install firefox chromium
 
-all:    git vim tmux
-.PHONY: git vim tmux
+all:    git vim nvim tmux
+.PHONY: git vim nvim tmux
