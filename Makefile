@@ -1,15 +1,9 @@
 CWD := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-
-bash:
-	rm -f ~/.bash_profile
-	ln -s $(CWD)/bash_profile ~/.bash_profile
 	
 git:
 	rm -f ~/.gitconfig ~/.gitignore
 	ln -s $(CWD)/gitconfig ~/.gitconfig
 	ln -s $(CWD)/gitignore ~/.gitignore
-	rm -f ~/.git-completion.bash
-	ln -s $(CWD)/git-completion.bash ~/.git-completion.bash
 
 vim:
 	rm -f ~/.vimrc
@@ -24,10 +18,6 @@ tmux:
 	ln -s $(CWD)/tmux.conf ~/.tmux.conf
 	ln -s $(CWD)/tmux ~/.tmux
 
-hyper:
-	rm -f ~/.hyper.js
-	ln -s $(CWD)/hyper.js ~/.hyper.js
-
 brew:
 	brew bundle
 
@@ -37,5 +27,5 @@ apt:
 snap:
 	snap install firefox chromium
 
-all:    bash git vim tmux
-.PHONY: bash git vim tmux
+all:    git vim tmux
+.PHONY: git vim tmux

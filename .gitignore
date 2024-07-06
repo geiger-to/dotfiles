@@ -8,3 +8,5 @@ vim/bundle
 tmux/plugins
 !tmux/plugins/tpm
 vim/.netrwhist
+vim/autoload
+vim/plugged

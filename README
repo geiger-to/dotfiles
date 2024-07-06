@@ -18,7 +18,7 @@
 
     ::  Installation
 
-        $ git clone --recursive https://github.com/gigr/dotfiles.git
+        $ git clone --recursive https://github.com/geiger-to/dotfiles.git
         $ cd dotfiles && make all
 
     ::  Overview
@@ -26,10 +26,10 @@
         This repository installs configuration files for a few
         different pieces of software:
 
-          - VIM
-          - TMUX
-          - Bash
-          - Git
+          - vim & neovim
+          - tmux
+          - Zsh
+          - git
 
         -------------------------------------------------------------
 

@@ -5,8 +5,7 @@
 	rb = pull --rebase
 	aa = add -A
 	amend = commit --amend
-	issue = checkout -t origin/master -b
-	cleanup = !git branch --merged | grep -v "master" | xargs git branch -D
+	cleanup = !git branch --merged | grep -v "main" | xargs git branch -D
 [push]
 	default = current
 [core]
@@ -17,8 +16,8 @@
 	autocorrect = -1
 
 [user]
-	name = Jonathan Geiger
-	email = jonathan.geiger@shopify.com
+	name = Jon Geiger
+	email = git@geiger.to
 
 [filter "lfs"]
 	clean = git-lfs clean %f
