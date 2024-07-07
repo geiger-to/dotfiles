@@ -1,4 +1,9 @@
 ---
+- name: link zshrc
+  ansible.builtin.file:
+    src: "{{ root_dir }}/zshrc"
+    dest: ~/.zshrc
+    state: link
 - name: link gitignore
   when: git_name and git_email
   ansible.builtin.file:
