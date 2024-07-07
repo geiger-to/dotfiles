@@ -2328,6 +2328,18 @@
         "options": {
           "full_name": "insomnia"
         }
+      },
+      "vscodium": {
+        "version": "1.90.2.24171",
+        "options": {
+          "full_name": "vscodium"
+        }
+      },
+      "visual-studio-code": {
+        "version": "1.91.0",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
       }
     }
   },
