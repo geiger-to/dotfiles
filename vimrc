@@ -245,7 +245,7 @@ Plug 'tpope/vim-repeat'
 " Add support for even more languages
 Plug 'sheerun/vim-polyglot'
 
-" Add searching with ag
+" Add searching with ack
 Plug 'mileszs/ack.vim'
 
 " Quickly maximize the current split

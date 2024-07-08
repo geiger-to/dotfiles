@@ -39,6 +39,7 @@ brew "tailscale"
 brew "tmux"
 brew "wget"
 brew "youtube-dl"
+brew "universal-ctags"
 
 cask "android-file-transfer"
 cask "android-platform-tools"
