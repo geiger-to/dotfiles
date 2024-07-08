@@ -18,6 +18,7 @@
 
 
 
+
      >  Installation
 
         $ git clone --recursive https://github.com/geiger-to/dotfiles.git
@@ -38,6 +39,10 @@
         that I own and run—typically debian and macos. In general, things
         should Just Work™, so open an issue if you run into problems.
 
+     >  Docs
 
-                                   ~
+        For more information, visit: https://geiger.to/dotfiles
+
+        Thanks!
+
 
