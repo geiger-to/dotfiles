@@ -264,7 +264,7 @@ Plug 'vim-scripts/gitignore'
 Plug 'scrooloose/nerdcommenter'
 
 " Outline tags in a pane
-Plug 'majutsushi/tagbar'
+Plug 'preservevim/tagbar'
 
 " Add auto-closing of pairs for ruby and vim
 Plug 'tpope/vim-endwise'
