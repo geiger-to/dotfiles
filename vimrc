@@ -105,6 +105,9 @@ inoremap jj <ESC>
 " And Shift-; is just too darn difficult
 noremap ; :
 
+" Open/Close NERDTree
+nnoremap <leader>e :NERDTreeToggle<CR>
+
 " Fast [w]rites and [q]uits
 nnoremap <Leader>w :w!<CR>
 nnoremap <Leader>wq :wq!<CR>
@@ -263,8 +266,11 @@ Plug 'vim-scripts/gitignore'
 " Quickly comment lines
 Plug 'scrooloose/nerdcommenter'
 
+" file explorer with NERDTree
+Plug 'preservim/nerdtree'
+
 " Outline tags in a pane
-Plug 'preservevim/tagbar'
+Plug 'preservim/tagbar'
 
 " Add auto-closing of pairs for ruby and vim
 Plug 'tpope/vim-endwise'
