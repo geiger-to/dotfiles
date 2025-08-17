@@ -7,6 +7,16 @@ proj() {
 export DO_NOT_TRACK=1
 export EDITOR=vim
 
-source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source $HOMEBREW_PREFIX/share/zsh-system-clipboard/zsh-system-clipboard.zsh
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  chmod go-w $(brew --prefix)/share
+  chmod -R go-w $(brew --prefix)/share/zsh
+
+  autoload -Uz compinit
+  compinit
+fi
+
+source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $(brew --prefix)/share/zsh-system-clipboard/zsh-system-clipboard.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
