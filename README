@@ -18,12 +18,6 @@
 
 
 
-
-     >  Installation
-
-        $ git clone --recursive https://github.com/geiger-to/dotfiles.git
-        $ cd dotfiles && ./install.rb
-
      >  Overview
 
         This repository installs configuration files for software
@@ -39,10 +33,134 @@
         that I own and run—typically debian and macos. In general, things
         should Just Work™, so open an issue if you run into problems.
 
-     >  Docs
+     >  Installation
 
-        For more information, visit: https://geiger.to/dotfiles
+        $ git clone --recursive https://github.com/geiger-to/dotfiles.git
+        $ cd dotfiles && ./install.rb
+
+        ┌─────────────────────────────────────────────────────────────────┐
+        │ WARNING: Review the Brewfile and backup your existing configs   │
+        │ before running. install.rb will overwrite your existing `vimrc`,│
+        │ `tmux.conf`, `zshrc`, and other config files. It will also run  │
+        │ `brew bundle` and install a bunch of software. Additionally,    │
+        │ it will prompt for your name and email to configure git.        │
+        └─────────────────────────────────────────────────────────────────┘
+
+     >  Getting Started
+
+        After installation, for proper color support in iTerm2:
+
+        1. Import the Catppuccin Mocha theme:
+           iTerm2 > Settings > Profiles > Colors > Color Presets > Import...
+           Select `iterm/catppuccin-mocha.itermcolors`
+
+        2. Import the profile:
+           iTerm2 > Settings > Profiles > Other Actions > Import JSON Profiles...
+           Select `iterm/profile.json`
+
+        3. Enable the imported profile:
+           Settings > Profiles > select the imported profile and set as default
+
+        4. Restart iTerm2
+
+     >  Usage
+
+        I open projects with the following in iTerm2 + zsh:
+
+            > proj ...
+
+        `proj` will create or connect to a TMUX session of the same name.
+        It will also set the working directory to `~/Projects/${name}`.
+
+     >  TMUX
+
+        I use tmux for "project" management.
+
+        ┌─ Session Management ──────────────────────────────────────────┐
+        │ <Ctrl-Space> d              detach from session               │
+        │ <Ctrl-Space> r              reload tmux configuration         │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Window Management ───────────────────────────────────────────┐
+        │ <Ctrl-Space> c              create new window                 │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Pane Management ─────────────────────────────────────────────┐
+        │ <Ctrl-Space> v              split window horizontally         │
+        │ <Ctrl-Space> s              split window vertically           │
+        │ <Ctrl-Space> x              close current pane                │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Pane Navigation ─────────────────────────────────────────────┐
+        │ <Ctrl-Space> h              move to pane left                 │
+        │ <Ctrl-Space> j              move to pane down                 │
+        │ <Ctrl-Space> k              move to pane up                   │
+        │ <Ctrl-Space> l              move to pane right                │
+        └───────────────────────────────────────────────────────────────┘
+
+     >  Vim
+
+        I use it for editing and debugging code in my projects.
+
+        ┌─ Basic Navigation ────────────────────────────────────────────┐
+        │ jj/ESC                      escape to normal mode             │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ File Operations ─────────────────────────────────────────────┐
+        │ <Space> w                   write file                        │
+        │ <Space> wq                  write and quit                    │
+        │ <Space> q                   quit                              │
+        │ <Space> rm                  delete current file               │
+        │ <Space> fo                  open file in Finder               │
+        │ <Space> fn                  copy filename to clipboard        │
+        │ <Space> fp                  copy filepath to clipboard        │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ File Explorer ───────────────────────────────────────────────┐
+        │ <Space> e                   toggle file explorer              │
+        │ <Space> -                   show file explorer                │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Search & Replace ────────────────────────────────────────────┐
+        │ <Space> p                   fuzzy file search                 │
+        │ <Space> a                   search with ag                    │
+        │ <Space> fs                  Far search                        │
+        │ <Space> fr                  Far replace                       │
+        │ <Space> <Space>             toggle search highlighting        │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Window & Split Management ───────────────────────────────────┐
+        │ <Space> v                   create vertical split             │
+        │ <Space> s                   create horizontal split           │
+        │ <Space> m                   maximize split                    │
+        │ <Ctrl-h>                    move to left split                │
+        │ <Ctrl-j>                    move to down split                │
+        │ <Ctrl-k>                    move to up split                  │
+        │ <Ctrl-l>                    move to right split               │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Code Editing ────────────────────────────────────────────────┐
+        │ <Ctrl-l> (visual)           indent right                      │
+        │ <Ctrl-h> (visual)           indent left                       │
+        │ \\                          toggle comment                    │
+        │ <Space> (visual)            easy align                        │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Development Tools ───────────────────────────────────────────┐
+        │ <Space> o                   toggle tagbar outline             │
+        │ <Space> db                  open database UI                  │
+        │ <Space> S                   open Spectre                      │
+        │ <Space> k                   show documentation                │
+        └───────────────────────────────────────────────────────────────┘
+
+        ┌─ Git Integration ─────────────────────────────────────────────┐
+        │ <Space> gg                  git status/commit interface       │
+        │ <Space> gd                  toggle git diff gutter            │
+        └───────────────────────────────────────────────────────────────┘
+
+     >  Git
+
+        I use `git feature` (from [git-extras](https://github.com/tj/git-extras)) 
+        for most PR branches, except when editing directly in GitHub.
 
         Thanks!
-
-

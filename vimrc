@@ -1,5 +1,8 @@
 set nocompatible
 
+" Enable mouse support
+set mouse=a
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -233,11 +236,7 @@ vnoremap <C-h> <gv
 map \\ <plug>NERDCommenterToggle
 
 " [G]it integration
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>ga :Gcommit --amend<CR>
+nnoremap <Leader>gg :Git<CR>
 
 " Git [d]iff in the gutter. There's some sort of bug with the background
 " colour that's fixed with running it this way. Adding the first
