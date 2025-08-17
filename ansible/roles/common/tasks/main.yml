@@ -53,3 +53,12 @@
     src: "{{ root_dir }}/nvim"
     dest: ~/.config/nvim
     state: link
+- name: link plug for neovim (dir)
+  ansible.builtin.file:
+    path: ~/.local/share/nvim/site/autoload
+    state: directory
+- name: link plug for neovim
+  ansible.builtin.file:
+    src: "{{ root_dir }}/vim/autoload/plug.vim"
+    dest: ~/.local/share/nvim/site/autoload/plug.vim
+    state: link

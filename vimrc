@@ -1,12 +1,93 @@
 set nocompatible
 
-let data_dir = '~/.vim'
+" Plugins
+call plug#begin('~/.vim/plugged')
 
-" Auto-install vim-plug
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" Use a bunch of sensible defaults for vim,
+" approved the by the reverend Tim Pope
+Plug 'tpope/vim-sensible'
+
+" For fuzzy file searching
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Indicate the diff of the file in the gutter
+Plug 'airblade/vim-gitgutter'
+
+" Add git integration
+Plug 'tpope/vim-fugitive'
+
+" Easily manipulate surrounding pairs
+Plug 'tpope/vim-surround'
+
+" Enable . for plugin mappings
+Plug 'tpope/vim-repeat'
+
+" Add support for even more languages
+Plug 'sheerun/vim-polyglot'
+
+" Add searching with ack
+Plug 'mileszs/ack.vim'
+
+" Quickly maximize the current split
+Plug 'regedarek/ZoomWin'
+
+" Auto-detect indentation settings
+Plug 'tpope/vim-sleuth'
+
+" Add a useful status bar
+Plug 'bling/vim-airline'
+
+" Add .gitignore contents to wildignore
+Plug 'vim-scripts/gitignore'
+
+" Quickly comment lines
+Plug 'scrooloose/nerdcommenter'
+
+" file explorer with NERDTree
+Plug 'preservim/nerdtree'
+
+" Outline tags in a pane
+Plug 'preservim/tagbar'
+
+" Add auto-closing of pairs for ruby and vim
+Plug 'tpope/vim-endwise'
+
+" Show netrw in the current split.
+Plug 'tpope/vim-vinegar'
+
+" Add support for easy alignment
+Plug 'junegunn/vim-easy-align'
+
+" Add support for easy alignment
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Add support for syntax error detection.
+Plug 'vim-syntastic/syntastic'
+
+" Visually expand regions
+Plug 'terryma/vim-expand-region'
+
+" DB access
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'kristijanhusak/vim-dadbod-completion'
+
+" Color schemes
+Plug 'flazz/vim-colorschemes'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+" Trial
+Plug 'brooth/far.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-pack/nvim-spectre'
 endif
+
+call plug#end()
 
 " Show line numbers
 set number
@@ -33,6 +114,7 @@ set list listchars=tab:·\ ,trail:•
 
 " Wrap at 80 lines.
 set textwidth=80
+set termguicolors
 
 " Indent with two spaces. These settings will most likely
 " be autodetected by the autoindent plugin anyway.
@@ -123,6 +205,12 @@ nnoremap <Leader>fo :silent !open -Rg %<CR>:redraw!<CR>
 nnoremap <Leader>fn :let @*=expand("%")<CR>
 nnoremap <Leader>fp :let @*=expand("%:p")<CR>
 
+" Quickly bring up "Far" for search
+nnoremap <Leader>fs :F<Space>
+nnoremap <Leader>fr :Far<Space>
+
+let g:far#default_file_mask = '**/*'
+
 " Toggle search highlighting
 nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 
@@ -177,7 +265,7 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case'
 endif
 
-" Quickly bring up "ag" for search
+" Quickly bring up "ag" and Far for search
 nnoremap <Leader>a :Ack<Space>
 
 " Quickly [m]aximize a split
@@ -188,6 +276,12 @@ nnoremap <Leader>o :TagbarToggle<CR>
 
 " Start Easy Align's interactive mode
 vnoremap <silent> <Space> :EasyAlign<CR>
+
+" DadBod
+nnoremap <leader>db :DBUI<CR>
+
+" Spectre
+nnoremap <leader>S :Spectre<CR>
 
 " Disable these mappings which I tend to just
 " fat-finger and end up getting in my way
@@ -223,79 +317,8 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 " Use powerline fonts (built-in to Iterm2) in airline
 let g:airline_powerline_fonts = 1
 
-" Plugins
-call plug#begin()
+colorscheme catppuccin_mocha
 
-" Use a bunch of sensible defaults for vim,
-" approved the by the reverend Tim Pope
-Plug 'tpope/vim-sensible'
-
-" For fuzzy file searching
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Indicate the diff of the file in the gutter
-Plug 'airblade/vim-gitgutter'
-
-" Add git integration
-Plug 'tpope/vim-fugitive'
-
-" Easily manipulate surrounding pairs
-Plug 'tpope/vim-surround'
-
-" Enable . for plugin mappings
-Plug 'tpope/vim-repeat'
-
-" Add support for even more languages
-Plug 'sheerun/vim-polyglot'
-
-" Add searching with ack
-Plug 'mileszs/ack.vim'
-
-" Quickly maximize the current split
-Plug 'regedarek/ZoomWin'
-
-" Auto-detect indentation settings
-Plug 'tpope/vim-sleuth'
-
-" Add a useful status bar
-Plug 'bling/vim-airline'
-
-" Add .gitignore contents to wildignore
-Plug 'vim-scripts/gitignore'
-
-" Quickly comment lines
-Plug 'scrooloose/nerdcommenter'
-
-" file explorer with NERDTree
-Plug 'preservim/nerdtree'
-
-" Outline tags in a pane
-Plug 'preservim/tagbar'
-
-" Add auto-closing of pairs for ruby and vim
-Plug 'tpope/vim-endwise'
-
-" Show netrw in the current split.
-Plug 'tpope/vim-vinegar'
-
-" Add support for easy alignment
-Plug 'junegunn/vim-easy-align'
-
-" Add support for easy alignment
-Plug 'AndrewRadev/splitjoin.vim'
-
-" Add support for syntax error detection.
-Plug 'vim-syntastic/syntastic'
-
-" Visually expand regions
-Plug 'terryma/vim-expand-region'
-
-" Color schemes
-Plug 'flazz/vim-colorschemes'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-
-call plug#end()
-
-colorscheme solarized
+let g:airline_theme = 'catppuccin_mocha'
 
 set background=dark

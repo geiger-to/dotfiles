@@ -1,6 +1,6 @@
 proj() {
-  mkdir -p ~/Code/$1
-  cd ~/Code/$1
+  mkdir -p ~/Projects/$1
+  cd ~/Projects/$1
   tmux new-session -A -s $1
 }
 
