@@ -10,6 +10,7 @@ export EDITOR=vim
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
+  # Not the best...
   chmod go-w $(brew --prefix)/share
   chmod -R go-w $(brew --prefix)/share/zsh
 
@@ -20,3 +21,7 @@ fi
 source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $(brew --prefix)/share/zsh-system-clipboard/zsh-system-clipboard.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
