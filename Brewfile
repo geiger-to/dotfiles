@@ -1,6 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/services"
-
 brew "python@3.12"
 brew "ansible"
 brew "caddy"
@@ -39,7 +36,10 @@ brew "tailscale"
 brew "tmux"
 brew "wget"
 brew "yt-dlp"
-brew "universal-ctags"
+brew "zsh-autocomplete"
+brew "zsh-completions"
+brew "zsh-system-clipboard"
+brew "zsh-syntax-highlighting"
 
 cask "altair-graphql-client"
 cask "android-file-transfer"
