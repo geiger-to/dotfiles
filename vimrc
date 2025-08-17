@@ -254,7 +254,7 @@ let g:ctrlp_custom_ignore = {
 \ }
 
 " Ctrl-P with ag
-let g:ctrlp_user_command = 'ag %s -l --nocolor --unrestricted -g ""'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " Use a common ctrlp cache
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
