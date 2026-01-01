@@ -5,7 +5,7 @@
     dest: ~/.zshrc
     state: link
 - name: link gitignore
-  when: git_name and git_email
+  when: git_name is string and git_email is string
   ansible.builtin.file:
     src: "{{ root_dir }}/gitignore"
     dest: ~/.gitignore
@@ -14,19 +14,19 @@
   ansible.builtin.copy:
     src: "{{ root_dir }}/gitconfig"
     dest: ~/.gitconfig 
-  when: git_name and git_email
+  when: git_name is string and git_email is string
 - name: setup git name
   git_config:
     name: user.name
     scope: global
     value: "{{ git_name }}"
-  when: git_name
+  when: git_name is string
 - name: setup git email
   git_config:
     name: user.email
     scope: global
     value: "{{ git_email }}"
-  when: git_email
+  when: git_email is string
 - name: link tmux.conf
   ansible.builtin.file:
     src: "{{ root_dir }}/tmux.conf"
