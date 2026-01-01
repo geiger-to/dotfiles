@@ -316,8 +316,27 @@ let syntastic_mode_map = { 'passive_filetypes': ['html'] }
 " Use powerline fonts (built-in to Iterm2) in airline
 let g:airline_powerline_fonts = 1
 
-colorscheme catppuccin_mocha
+" ChangeBackground changes the background mode based on macOS's `Appearance`
+" setting. We also refresh the statusline colors to reflect the new mode.
+function! ChangeBackground()
+  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark   " for the dark version of the theme
+    colorscheme catppuccin_mocha
+    let g:airline_theme = 'catppuccin_mocha'
+  else
+    set background=light  " for the light version of the theme
+    colorscheme catppuccin_latte
+    let g:airline_theme = 'catppuccin_latte'
+  endif
 
-let g:airline_theme = 'catppuccin_mocha'
+  try
+    execute "AirlineRefresh"
+  catch
+  endtry
+endfunction
 
-set background=dark
+" initialize the colorscheme for the first run
+call ChangeBackground()
+
+" change the color scheme if we receive a SigUSR1
+autocmd SigUSR1 * call ChangeBackground()
