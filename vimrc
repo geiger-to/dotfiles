@@ -2,6 +2,9 @@ set nocompatible
 
 " Enable mouse support
 set mouse=a
+if has('mouse_sgr')
+  set ttymouse=sgr
+endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -108,6 +111,7 @@ set noswapfile
 
 " Share the system clipboard with vim
 set clipboard=unnamed
+vnoremap <LeftRelease> <LeftRelease>ygv
 
 " Do not wrap lines
 set nowrap
