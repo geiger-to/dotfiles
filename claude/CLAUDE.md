@@ -14,11 +14,32 @@ Applies to docs, READMEs, commit messages, UI copy, and error messages.
 
 ## Voice and tone
 
-- Voice: trustworthy, confident, empowering, practical, and clear. Keep it the same everywhere.
-- Tone: match the moment. Be direct and serious for errors and warnings. Be helpful and encouraging for onboarding and setup.
+- Keep one voice everywhere: trustworthy, confident, empowering, practical, and clear.
+- Change the tone to fit the reader's situation. Be direct and serious in errors and warnings. Be helpful and encouraging in onboarding and setup.
+- Never be playful in an error. Write "Upload failed. Use a PNG or JPG file." Not "Whoops! Something went sideways."
 
-## Rules
+## Plain language
 
-- Readability: use plain language at a grade 7 reading level. Avoid jargon, idioms, and long, dense blocks of text.
-- Consistency: pick one exact term for each concept or action and stick with it. Don't swap in synonyms.
-- Action: start calls to action with a strong, active verb. Break complex tasks into clear steps in order.
+- Aim for a grade 7 reading level.
+- Use everyday words. Write "each item's sales total," not "the aggregate revenue per SKU cohort."
+- Don't use idioms or irony. They get misread and mistranslated.
+- Choose clarity over brevity. A short line that can be misread is worse than a longer one that can't.
+- Make it scannable with headings, lists, and short sentences. Split a long paragraph into a one-line summary and a list.
+- Say each thing once. Don't repeat a heading in the text below it or show the same content two ways.
+
+## Consistency
+
+- Use one exact word for each thing, action, or concept. If it's "Upload image" in one place, don't write "Add photos" in another.
+
+## Action
+
+- Start calls to action with a strong verb in active voice. Write "Create template," not "Template creation option."
+- Put the most important information and tasks first.
+- Break complex tasks into steps, with one action per step.
+- Guide, don't push. Give readers what they need to decide for themselves. Write "Autopay charges your card on the 1st of each month. You can turn it off anytime." Not "Turn on autopay now."
+
+## Mechanics
+
+- Use correct grammar and spelling.
+- Spell out words instead of using symbols or abbreviations.
+- Format dates, numbers, and units the same way the surrounding product or docs do.
