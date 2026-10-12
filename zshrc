@@ -18,6 +18,17 @@ if type brew &>/dev/null; then
   compinit
 fi
 
+DOTFILES=${${(%):-%x}:A:h}
+
+if [[ $(defaults read -g AppleInterfaceStyle 2>/dev/null) == Dark ]]; then
+  CATPPUCCIN_FLAVOR=mocha
+else
+  CATPPUCCIN_FLAVOR=latte
+fi
+
+export LG_CONFIG_FILE=$DOTFILES/lazygit/$CATPPUCCIN_FLAVOR.yml
+source $DOTFILES/zsh/catppuccin_$CATPPUCCIN_FLAVOR-zsh-syntax-highlighting.zsh
+
 source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $(brew --prefix)/share/zsh-system-clipboard/zsh-system-clipboard.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -25,3 +36,11 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/geiger/.cache/lm-studio/bin"
+# End of LM Studio CLI section
+
+
+# Created by `pipx` on 2026-05-25 00:17:08
+export PATH="$PATH:/Users/geiger/.local/bin"

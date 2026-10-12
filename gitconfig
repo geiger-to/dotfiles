@@ -6,7 +6,7 @@
 	aa = add -A
 	amend = commit --amend
 	cleanup = !git branch --merged | grep -v "main" | xargs git branch -D
-	retry = !git aa && git amend
+	retry = !git aa && git amend --no-edit && git push -f
 [push]
 	default = current
 [core]

@@ -50,9 +50,10 @@
 
         After installation, for proper color support in iTerm2:
 
-        1. Import the Catppuccin Mocha theme:
+        1. Import the Catppuccin Mocha and Latte themes:
            iTerm2 > Settings > Profiles > Colors > Color Presets > Import...
-           Select `iterm/catppuccin-mocha.itermcolors`
+           Select `iterm/catppuccin-mocha.itermcolors` and
+           `iterm/catppuccin-latte.itermcolors`
 
         2. Import the profile:
            iTerm2 > Settings > Profiles > Other Actions > Import JSON Profiles...

@@ -572,7 +572,7 @@
     "Green Component" : 0.76078431372549016
   },
   "Blur" : false,
-  "Use Separate Colors for Light and Dark Mode" : false,
+  "Use Separate Colors for Light and Dark Mode" : true,
   "Status Bar Layout" : {
     "components" : [
       {

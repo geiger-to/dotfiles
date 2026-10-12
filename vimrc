@@ -79,7 +79,6 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'kristijanhusak/vim-dadbod-completion'
 
 " Color schemes
-Plug 'flazz/vim-colorschemes'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Trial
