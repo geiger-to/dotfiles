@@ -13,9 +13,6 @@ call plug#begin('~/.vim/plugged')
 " approved the by the reverend Tim Pope
 Plug 'tpope/vim-sensible'
 
-" For fuzzy file searching
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Indicate the diff of the file in the gutter
 Plug 'airblade/vim-gitgutter'
 
@@ -31,9 +28,6 @@ Plug 'tpope/vim-repeat'
 " Add support for even more languages
 Plug 'sheerun/vim-polyglot'
 
-" Add searching with ack
-Plug 'mileszs/ack.vim'
-
 " Quickly maximize the current split
 Plug 'regedarek/ZoomWin'
 
@@ -46,9 +40,6 @@ Plug 'bling/vim-airline'
 " Add .gitignore contents to wildignore
 Plug 'vim-scripts/gitignore'
 
-" Quickly comment lines
-Plug 'scrooloose/nerdcommenter'
-
 " file explorer with NERDTree
 Plug 'preservim/nerdtree'
 
@@ -58,9 +49,6 @@ Plug 'preservim/tagbar'
 " Add auto-closing of pairs for ruby and vim
 Plug 'tpope/vim-endwise'
 
-" Show netrw in the current split.
-Plug 'tpope/vim-vinegar'
-
 " Add support for easy alignment
 Plug 'junegunn/vim-easy-align'
 
@@ -68,7 +56,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'AndrewRadev/splitjoin.vim'
 
 " Add support for syntax error detection.
-Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale', has('nvim') ? { 'on': [] } : {}
 
 " Visually expand regions
 Plug 'terryma/vim-expand-region'
@@ -82,17 +70,21 @@ Plug 'kristijanhusak/vim-dadbod-completion'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 " Trial
-Plug 'brooth/far.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'christoomey/vim-tmux-navigator'
 
-if has('nvim')
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-pack/nvim-spectre'
-endif
 
 call plug#end()
+
+if !has('nvim')
+  packadd! comment
+endif
+
+augroup vimrc
+  autocmd!
+augroup END
 
 " Show line numbers
 set number
@@ -107,6 +99,12 @@ set nospell
 " nuisances over time, rather than help.
 set nobackup
 set noswapfile
+
+set undofile
+if !has('nvim')
+  let &undodir = expand('~/.cache/vim/undo')
+  call mkdir(&undodir, 'p')
+endif
 
 " Share the system clipboard with vim
 set clipboard=unnamed
@@ -154,19 +152,19 @@ set exrc
 set secure
 
 " Auto-save after a brief period of time
-autocmd CursorHold,CursorHoldI * silent! wa
+autocmd vimrc CursorHold,CursorHoldI * silent! wa
 
 " Automatically balance splits
-autocmd VimResized,BufNew !nerdtree wincmd =
+autocmd vimrc VimResized * wincmd =
 
 " Most PHP is 4 spaces these days
-au FileType php setlocal softtabstop=4 tabstop=4 shiftwidth=4
+autocmd vimrc FileType php setlocal softtabstop=4 tabstop=4 shiftwidth=4
 
 " Don't wrap on HTML. That shit gets so long it's not funny.
-au FileType html,htmldjango,htmljinja,slim,html.handlebars setlocal textwidth=0 wrapmargin=0
+autocmd vimrc FileType html,htmldjango,htmljinja,slim,html.handlebars setlocal textwidth=0 wrapmargin=0
 
 " Speed up the slowness when dealing with synax highlighting ruby
-au FileType ruby setlocal re=1 foldmethod=manual
+autocmd vimrc FileType ruby setlocal re=1 foldmethod=manual
 
 " Don't replace past buffer
 function! RestoreRegister()
@@ -192,13 +190,14 @@ inoremap jj <ESC>
 
 " And Shift-; is just too darn difficult
 noremap ; :
+noremap : ;
 
 " Open/Close NERDTree
 nnoremap <leader>e :NERDTreeToggle<CR>
 
 " Fast [w]rites and [q]uits
 nnoremap <Leader>w :w!<CR>
-nnoremap <Leader>wq :wq!<CR>
+nnoremap <Leader>x :wq!<CR>
 nnoremap <Leader>q :q!<CR>
 
 " Fast [r]emoval of files
@@ -211,12 +210,6 @@ nnoremap <Leader>fo :silent !open -Rg %<CR>:redraw!<CR>
 nnoremap <Leader>fn :let @*=expand("%")<CR>
 nnoremap <Leader>fp :let @*=expand("%:p")<CR>
 
-" Quickly bring up "Far" for search
-nnoremap <Leader>fs :F<Space>
-nnoremap <Leader>fr :Far<Space>
-
-let g:far#default_file_mask = '**/*'
-
 " Toggle search highlighting
 nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 
@@ -225,18 +218,13 @@ nnoremap <Leader><Space> :set hlsearch!<CR><esc>
 nnoremap <Leader>v :botright vnew<CR><C-W>l
 nnoremap <Leader>s :belowright new<CR><C-W>j
 
-" Afford quickly moving around splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 " Quickly change indent
 vnoremap <C-l> >gv
 vnoremap <C-h> <gv
 
 " Quickly toggle code comments
-map \\ <plug>NERDCommenterToggle
+nmap \\ gcc
+xmap \\ gc
 
 " [G]it integration
 nnoremap <Leader>gg :Git<CR>
@@ -247,28 +235,11 @@ nnoremap <Leader>gg :Git<CR>
 nnoremap <Leader>gd :hi clear SignColumn<CR> :GitGutterToggle<CR>
 
 " Fuzzy filename searching with ctrl-[p]
-let g:ctrlp_map = '<Leader>p'
-let g:ctrlp_max_files = 1000000
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git"'
+nnoremap <Leader>p :Files<CR>
 
-" Add a few oft-used ignores to CtrlP. They end up
-" just bogging it down for no real reason.
-let g:ctrlp_custom_ignore = {
-\ 'dir':  'node_modules',
-\ }
-
-" Ctrl-P with ag
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-" Use a common ctrlp cache
-let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-
-" Grep with [a]g, aka the silver searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
-endif
-
-" Quickly bring up "ag" and Far for search
-nnoremap <Leader>a :Ack<Space>
+" Quickly bring up ripgrep for search
+nnoremap <Leader>a :Rg<Space>
 
 " Quickly [m]aximize a split
 nnoremap <Leader>m :ZoomWin<CR>
@@ -282,9 +253,6 @@ vnoremap <silent> <Space> :EasyAlign<CR>
 " DadBod
 nnoremap <leader>db :DBUI<CR>
 
-" Spectre
-nnoremap <leader>S :Spectre<CR>
-
 " Disable these mappings which I tend to just
 " fat-finger and end up getting in my way
 map K k
@@ -293,10 +261,6 @@ map K k
 nnoremap <Leader>k K
 
 " Configuration
-
-" Add spaces after comments and remove them when removing comments
-let g:NERDSpaceDelims = 1
-let g:NERDRemoveExtraSpaces = 1
 
 " Only show git gutter when requested,
 " use the diff highlighting by default.
@@ -313,16 +277,18 @@ let g:tagbar_autoclose = 1
 " Sort by the order in the file, not by name
 let g:tagbar_sort = 0
 
-" Disable syntastic for HTML. It kind of sucks.
-let syntastic_mode_map = { 'passive_filetypes': ['html'] }
-
 " Use powerline fonts (built-in to Iterm2) in airline
 let g:airline_powerline_fonts = 1
 
 " ChangeBackground changes the background mode based on macOS's `Appearance`
 " setting. We also refresh the statusline colors to reflect the new mode.
 function! ChangeBackground()
-  if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  let l:dark = system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+  if exists('g:colors_name') && g:colors_name ==# (l:dark ? 'catppuccin_mocha' : 'catppuccin_latte')
+    return
+  endif
+
+  if l:dark
     set background=dark   " for the dark version of the theme
     colorscheme catppuccin_mocha
     let g:airline_theme = 'catppuccin_mocha'
@@ -342,4 +308,9 @@ endfunction
 call ChangeBackground()
 
 " change the color scheme if we receive a SigUSR1
-autocmd SigUSR1 * call ChangeBackground()
+if has('nvim')
+  autocmd vimrc Signal SIGUSR1 call ChangeBackground()
+else
+  autocmd vimrc SigUSR1 * call ChangeBackground()
+endif
+autocmd vimrc FocusGained * call ChangeBackground()
