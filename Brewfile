@@ -27,7 +27,6 @@ brew "opensearch"
 brew "podman"
 brew "podman-compose"
 brew "postgresql@15", restart_service: true
-brew "rbenv"
 brew "rclone"
 brew "redis"
 brew "ripgrep"
