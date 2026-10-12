@@ -72,3 +72,19 @@
     dest: ~/.claude/CLAUDE.md
     state: link
     force: yes
+- name: create mise directory
+  ansible.builtin.file:
+    path: ~/.config/mise
+    state: directory
+- name: link mise config
+  ansible.builtin.file:
+    src: "{{ root_dir }}/mise/config.toml"
+    dest: ~/.config/mise/config.toml
+    state: link
+    force: yes
+- name: link mise default gems
+  ansible.builtin.file:
+    src: "{{ root_dir }}/mise/default-gems"
+    dest: ~/.default-gems
+    state: link
+    force: yes

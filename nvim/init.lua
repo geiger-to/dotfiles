@@ -5,8 +5,18 @@ vim.opt.packpath:append('~/.vim')
 
 vim.diagnostic.config({ virtual_text = true })
 
+vim.lsp.config('ruby_lsp', {
+  cmd = function(dispatchers, config)
+    return vim.lsp.rpc.start(
+      { 'mise', 'exec', '--', 'ruby-lsp' },
+      dispatchers,
+      { cwd = config.cmd_cwd or config.root_dir }
+    )
+  end,
+})
+
 local servers = {
-  ruby_lsp = 'ruby-lsp',
+  ruby_lsp = 'mise',
   ts_ls = 'typescript-language-server',
   gopls = 'gopls',
   lua_ls = 'lua-language-server',
