@@ -1,5 +1,6 @@
 brew "python@3.12"
 brew "ansible"
+brew "autoconf"
 brew "caddy"
 brew "dash"
 brew "docker", link: false
