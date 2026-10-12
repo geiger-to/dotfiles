@@ -75,6 +75,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'neovim/nvim-lspconfig', has('nvim') ? {} : { 'on': [] }
 
 call plug#end()
 
